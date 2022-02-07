@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html,
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -17,4 +19,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
+} */
