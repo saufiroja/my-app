@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux'
 import Header from "../components/game/Header";
 import GameBoard from "../components/game/GameBoard";
 
-const game = () => {
+const Game = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch({
@@ -21,4 +21,4 @@ const game = () => {
   );
 };
 
-export default game;
+export default Game;
