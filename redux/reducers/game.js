@@ -13,7 +13,6 @@ export const gameReducer = (state = gameState, action) => {
         userFinger: "",
         computerFinger: "",
         result: "",
-        score: 0,
       };
     case "SET_USER_FINGER":
       return {
