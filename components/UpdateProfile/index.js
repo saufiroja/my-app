@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Image from "next/image";
 
-export default function updateProfil() {
+export default function UpdateProfile() {
     return (
         <div className="bg-impostor no-repeat bg-cover h-screen w-screen font-body">
             <div className="container mx-auto px-[6%]">
