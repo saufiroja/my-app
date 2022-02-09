@@ -1,8 +1,7 @@
-import { REGISTER_USER } from "../constants/users";
+import { LOGIN_USER, REGISTER_USER} from "../constants/users";
 
 const initialState = {
     user: null,
-    isLoading: false
 }
 
 export const usersReducer = (state = initialState, action) => {
@@ -10,8 +9,13 @@ export const usersReducer = (state = initialState, action) => {
         case REGISTER_USER:
             return {
                 ...state,
-                user: action.payload,
-                isLoading: true
+                user: action.payload
+            }
+
+        case LOGIN_USER:
+            return {
+                ...state,
+                user: action.payload
             }
 
         default:
