@@ -36,7 +36,7 @@ function Login() {
     )
     
     setTimeout(() => {
-      router.push('/')
+      router.push('/game')
     }, 3000);
   }
   return (
