@@ -13,7 +13,7 @@ export default function Profile() {
                     <Image src="/images/logo-black.png" alt="logo-black" className="mt-6" width={30} height={30} />
                         <button className="bg-sky-600 hover:bg-sky-700 rounded-large px-9 py-[15px] flex flex-nowrap justify-center mt-12">
                             <FontAwesomeIcon icon={faUser} className="mt-1"/>
-                            <h3 className="mx-3 text-slate-50">My Profil</h3>
+                            <h3 className="mx-3 text-slate-50">My Profile</h3>
                         </button>
 
                         <figure className="bg-slate-100 rounded-xl p-8 mt-6 font-body">
