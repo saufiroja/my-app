@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { connect } from 'react-redux';
 import { useRouter } from 'next/router';
+import { useDispatch } from "react-redux"
+import Link from 'next/link';
 import { registerUser } from '../redux/actions/users';
 // import { Button } from '../components/Button';
 
@@ -9,8 +11,10 @@ function Register(props) {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
 
   const router = useRouter()
+  const dispatch = useDispatch()
 
   const handleRegister = (e) => {
     e.preventDefault()
@@ -23,14 +27,18 @@ function Register(props) {
     setUsername('')
     setEmail('')
     setPassword('')
+    setLoading(true)
 
-    props.registerUser(data)
+    dispatch(
+      registerUser(data)
+    )
+    
     setTimeout(() => {
       router.push('/login')
     }, 3000);
   }
   return (
-    <div className="md:bg-impostor bg-main no-repeat bg-cover bg-center bg-fixed h-screen font-body">
+    <div className="md:bg-impostor bg-main no-repeat bg-cover bg-center bg-fixed md:h-screen font-body">
       <div className="container py-14">
         {/* Navbar */}
         <nav>
@@ -54,15 +62,21 @@ function Register(props) {
                 <label htmlFor="password" className="mt-3">Password</label>
                 <input type="password" placeholder='Password' className='border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3' value={password} onChange={e => setPassword(e.target.value)} />
                 {
-                  props.isLoading ?
+                  loading ?
                   (
                     <button className='bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed'>Loading ...</button>
                   ) : (
-                    <button type='button' className='bg-primary text-white h-12 rounded-large mt-4' onClick={handleRegister} loading={props.isLoading ? 1 : 0}>Register</button>
+                    <button type='button' className='bg-primary text-white h-12 rounded-large mt-4' onClick={handleRegister} loading={loading ? 1 : 0}>Register</button>
                   )
                 }
                 {/* <Button onClick={handleRegister} title="Register" loading={props.isLoading ? 1 : 0} /> */}
             </form>
+            <div className="flex gap-2 mt-3">
+              <h3>Sudah punya akun?</h3>
+              <Link href='/login'>
+                <a className='text-blue-400 underline'>Klik di sini</a>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
@@ -70,12 +84,14 @@ function Register(props) {
   )
 }
 
-const reduxState = (state) => ({
-  isLoading: state.users.isLoading
-})
+// const reduxState = (state) => ({
+//   isLoading: state.users.isLoading
+// })
 
-const reduxDispatch = (dispatch) => ({
-  registerUser: (data) => dispatch(registerUser(data))
-})
+// const reduxDispatch = (dispatch) => ({
+//   registerUser: (data) => dispatch(registerUser(data)),
+//   changeLoading: (data) => dispatch(changeLoading(data))
+// })
 
-export default connect(reduxState, reduxDispatch)(Register)
+// export default connect(reduxState, reduxDispatch)(Register)
+export default Register;

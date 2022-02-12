@@ -1,3 +1,15 @@
+import {
+  CALCULATE_RESULT,
+  DECREMENT_SCORE,
+  INCREMENT_SCORE,
+  RESET,
+  SET_COMPUTER_FINGER,
+  SET_SCORE_FROM_LOCALSTORAGE,
+  SET_USER_FINGER
+} from "../constants/game";
+
+// const myProfile = JSON.parse(localStorage.getItem('data'))
+// const data  = myProfile.data.data
 export const gameState = {
   userFinger: "",
   computerFinger: "",
@@ -7,25 +19,27 @@ export const gameState = {
 
 export const gameReducer = (state = gameState, action) => {
   switch (action.type) {
-    case "RESET":
+    case RESET:
       return {
         ...state,
         userFinger: "",
-        computerFinger: "",
-        result: "",
-        score: 0,
+          computerFinger: "",
+          result: "",
       };
-    case "SET_USER_FINGER":
+      
+    case SET_USER_FINGER:
       return {
         ...state,
         userFinger: action.payload,
       };
-    case "SET_COMPUTER_FINGER":
+
+    case SET_COMPUTER_FINGER:
       return {
         ...state,
         computerFinger: action.payload,
       };
-    case "CALCULATE_RESULT":
+
+    case CALCULATE_RESULT:
       let result = "";
       switch (state.userFinger) {
         case state.computerFinger:
@@ -45,27 +59,29 @@ export const gameReducer = (state = gameState, action) => {
         ...state,
         result,
       };
-    case "SET_SCORE_FROM_LOCALSTORAGE":
+
+    case SET_SCORE_FROM_LOCALSTORAGE:
       const score = localStorage.getItem("score");
       if (!score) localStorage.setItem("score", 0);
       return {
         ...state,
-        score,
+        score: action.payload
       };
 
-    case "INCREMENT_SCORE":
+    case INCREMENT_SCORE:
       const newScore = state.score + 1;
       localStorage.setItem("score", newScore);
       return {
         ...state,
-        score: newScore,
+        score: newScore
       };
-    case "DECREMENT_SCORE":
+
+    case DECREMENT_SCORE:
       const newScore2 = state.score > 0 ? state.score - 1 : 0;
       localStorage.setItem("score", newScore2);
       return {
         ...state,
-        score: newScore2,
+        score: newScore2
       };
     default:
       return state;

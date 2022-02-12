@@ -1,15 +1,15 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux'
 import Header from "../components/game/Header";
 import GameBoard from "../components/game/GameBoard";
 
-const game = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch({
-      type: "SET_SCORE_FROM_LOCALSTORAGE",
-    });
-  }, []);
+const Game = () => {
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch({
+  //     type: "SET_SCORE_FROM_LOCALSTORAGE",
+  //   });
+  // }, []);
 
   return (
     <div className="bg-slate-800">
@@ -21,4 +21,4 @@ const game = () => {
   );
 };
 
-export default game;
+export default Game;
