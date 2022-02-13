@@ -1,31 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setScoreFromLocalStorage } from "../../redux/actions/game";
-import axios from "axios";
 
 const ScoreBoard = () => {
   const [scoreEffect, setScoreEffect] = useState("");
   const { score, result } = useSelector((state) => state.game);
 
   const dispatch = useDispatch()
-
-  // useEffect(() => {
-  //   if (!result) return;
-  //   switch (result) {
-  //     case "win":
-  //       setScoreEffect("bg-green-200");
-  //       break;
-  //     case "lose":
-  //       setScoreEffect("bg-red-200");
-  //       break;
-  //   }
-  // }, [result]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setScoreEffect("");
-  //   }, 600);
-  // }, [scoreEffect]);
 
   useEffect(() => {
     dispatch(setScoreFromLocalStorage(score));
