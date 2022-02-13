@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
-import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../redux/actions/users";
 import AssetKuning from "../components/Assets/AssetKuning";
 import LingkaranKuning from "../components/Assets/LingkaranKuning";
@@ -47,12 +46,11 @@ const EditProfile = (props) => {
                     {
                         isLoading ?
                         (
-                            <button className='bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed'>Loading ...</button>
+                            <button className='bg-gray-300 text-gray-600 rounded-large mt-4 py-3 w-full hover:cursor-not-allowed'>Loading ...</button>
                         ) : (
-                            <button type='button' className='bg-primary text-white h-12 rounded-large mt-4 hover:bg-blue-700' onClick={handleRegister} loading={isLoading ? 1 : 0}>Register</button>
+                            <button type="button" className="bg-primary text-white rounded-large mt-4 py-3 w-full" onClick={handleUpdate} loading={isLoading ? 1 : 0}>Update</button>
                         )
                     }
-                    <button type="button" className="bg-primary text-white rounded-large mt-4 py-3 w-full" onClick={handleUpdate}>Update</button>
                     <div className="flex text-slate-700">
                         <p className="mt-4">Back To Profile?</p>
                         <p className="mt-4 underline underline-offset-4 text-blue-600 ml-4">Klick Here</p>
