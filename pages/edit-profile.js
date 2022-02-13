@@ -2,6 +2,11 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../redux/actions/users";
+import AssetKuning from "../components/Assets/AssetKuning";
+import LingkaranKuning from "../components/Assets/LingkaranKuning";
+import AssetUngu from "../components/Assets/AssetUngu";
+import AssetGame from "../components/Assets/AssetGame";
+import AssetBatu from "../components/Assets/AssetBatu";
 
 const EditProfile = (props) => {
     const { user, updateProfile, isLoading } = props;
@@ -21,9 +26,15 @@ const EditProfile = (props) => {
         updateProfile(data)
     }
     return (
-        <div className="bg-impostor no-repeat bg-cover h-screen w-screen font-body">
+        <div className="bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden">
+            <AssetKuning />
+            <LingkaranKuning />
+            <AssetUngu />
+            <AssetGame />
+            <AssetBatu />
+            
             <div className="container mx-auto px-[6%]">
-                <div className="h-screen w-5/12 pt-[130px]">
+                <div className="h-screen w-5/12 pt-[80px] xl:ml-4 lg:ml-4 md:ml-20 sm:ml-[30%]">
                     <p className="text-[38px] text-center font-semibold text-slate-700">Edit Profile</p>
                     <p className="text-left mt-4">Username</p>
                     <input className="focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-[40px] py-3 pl-4 ring-1 ring-slate-200 shadow-sm mt-2" type="text" aria-label="Filter projects" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
