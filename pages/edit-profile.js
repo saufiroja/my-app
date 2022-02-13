@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useSelector, useDispatch } from "react-redux";
 import { updateProfile } from "../redux/actions/users";
-import Image from 'next/image';
 import AssetKuning from "../components/Assets/AssetKuning";
 import LingkaranKuning from "../components/Assets/LingkaranKuning";
 import AssetUngu from "../components/Assets/AssetUngu";
