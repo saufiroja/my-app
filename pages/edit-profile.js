@@ -8,8 +8,7 @@ import AssetUngu from "../components/Assets/AssetUngu";
 import AssetGame from "../components/Assets/AssetGame";
 import AssetBatu from "../components/Assets/AssetBatu";
 
-
-const EditProfile = (props) => {
+function EditProfile (props) {
     const { user, updateProfile } = props;
     const [username, setUsername] = useState(user.data.username)
     const [name, setName] = useState(user.data.name)
