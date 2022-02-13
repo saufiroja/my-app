@@ -74,7 +74,7 @@ function Login(props) {
                 (
                   <button className='bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed'>Loading ...</button>
                 ) : (
-                  <button type='button' className='bg-primary text-white h-12 rounded-large mt-4' onClick={handleLogin} loading={isLoading ? 1 : 0}>Login</button>
+                  <button type='button' className='bg-primary text-white h-12 rounded-large mt-4 hover:bg-blue-700' onClick={handleLogin} loading={isLoading ? 1 : 0}>Login</button>
                 )
               }
               {/* <Button onClick={handleRegister} title="Register" loading={props.isLoading ? 1 : 0} /> */}
