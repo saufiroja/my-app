@@ -53,6 +53,7 @@ function Login(props) {
       <AssetUngu />
       <AssetGame />
       <AssetBatu />
+      
       <div className="container py-14">
         {/* Navbar */}
         <nav>
@@ -63,7 +64,7 @@ function Login(props) {
         </nav>
 
         {/* Main Component */}
-        <div className='md:flex gap-2 justify-start items-center py-20 xl:'>
+        <div className='md:flex gap-2 justify-start items-center py-20 xl:ml-[5%] lg:ml-[5%] md:ml-[12%]'>
           <div>
             <h1 className='text-4xl text-center font-bold'>Login</h1>
             <form className='grid'>

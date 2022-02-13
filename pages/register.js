@@ -5,6 +5,11 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { registerUser } from '../redux/actions/users';
 // import { Button } from '../components/Button';
+import AssetKuning from "../components/Assets/AssetKuning";
+import LingkaranKuning from "../components/Assets/LingkaranKuning";
+import AssetUngu from "../components/Assets/AssetUngu";
+import AssetGame from "../components/Assets/AssetGame";
+import AssetBatu from "../components/Assets/AssetBatu";
 
 function Register(props) {
   const [username, setUsername] = useState('')
@@ -47,7 +52,13 @@ function Register(props) {
   }, [redirect, router])
 
   return (
-    <div className="md:bg-impostor bg-main no-repeat bg-cover bg-center bg-fixed md:h-screen font-body">
+    <div className="bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden">
+      <AssetKuning />
+      <LingkaranKuning />
+      <AssetUngu />
+      <AssetGame />
+      <AssetBatu />
+
       <div className="container py-14">
         {/* Navbar */}
         <nav>
@@ -58,7 +69,7 @@ function Register(props) {
         </nav>
 
         {/* Main Component */}
-        <div className='md:flex gap-2 justify-start items-center py-20'>
+        <div className='md:flex gap-2 justify-start items-center py-20 xl:ml-[5%] lg:ml-[5%] md:ml-[12%]'>
           <div>
             <h1 className='text-4xl text-center font-bold'>Register</h1>
             <form className='grid'>
