@@ -5,6 +5,11 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { loginUser } from '../redux/actions/users';
 // import { Button } from '../components/Button';
+import AssetKuning from "../components/Assets/AssetKuning";
+import LingkaranKuning from "../components/Assets/LingkaranKuning";
+import AssetUngu from "../components/Assets/AssetUngu";
+import AssetGame from "../components/Assets/AssetGame";
+import AssetBatu from "../components/Assets/AssetBatu";
 
 function Login(props) {
   const [email, setEmail] = useState('')
@@ -42,7 +47,12 @@ function Login(props) {
   }, [redirect, router])
 
   return (
-    <div className="md:bg-impostor bg-main no-repeat bg-cover bg-center bg-fixed md:h-screen font-body">
+    <div className="bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden">
+      <AssetKuning />
+      <LingkaranKuning />
+      <AssetUngu />
+      <AssetGame />
+      <AssetBatu />
       <div className="container py-14">
         {/* Navbar */}
         <nav>
@@ -53,7 +63,7 @@ function Login(props) {
         </nav>
 
         {/* Main Component */}
-        <div className='md:flex gap-2 justify-start items-center py-20'>
+        <div className='md:flex gap-2 justify-start items-center py-20 xl:'>
           <div>
             <h1 className='text-4xl text-center font-bold'>Login</h1>
             <form className='grid'>
