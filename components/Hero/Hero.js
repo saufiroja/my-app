@@ -22,7 +22,7 @@ export default function Hero() {
               let's show your talent for game
             </h1>
             <div className="xl:ml-[0] lg:ml-[0] md:ml-[0] sm:ml-[20%]">
-              <Button className="xl:mt-[5%] lg:mt-[5%] md:mt-[5%] sm:mt-[4%]" variant="yellow">
+              <Button className="xl:mt-[5%] lg:mt-[5%] md:mt-[5%] sm:mt-[4%] text-black" variant="yellow">
                 Get Started
               </Button>
             </div>
