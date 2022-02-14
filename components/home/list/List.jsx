@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
   Card,
   CardActions,
@@ -10,12 +8,29 @@ import {
   Typography,
   Button,
 } from '@mui/material';
+import Modal from '../../Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { showModal } from '../../../redux/actions/users';
 
 const cards = [1, 2, 3, 4, 5, 6];
 
 const List = () => {
+  const modal = useSelector(state => state.users.modal)
+  const dispatch = useDispatch()
+
+  const handleOnClick = () => {
+    dispatch(
+      showModal()
+    )
+  }
   return (
     <main>
+      {
+        modal && (
+          <Modal />
+        )
+      }
+
       <Container maxWidth='md' className='pt-10'>
         <Typography variant='h4' align='center' pb={3} className='font-body'>
           List Game
@@ -38,7 +53,7 @@ const List = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button variant='outlined' size='small'>
+                  <Button variant='outlined' size='small' onClick={handleOnClick}>
                     Play
                   </Button>
                 </CardActions>

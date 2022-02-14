@@ -1,7 +1,10 @@
 import {
   ERROR_AUTH,
+  FORGOT_PASSWORD,
+  HIDDEN_MODAL,
   LOGIN_USER,
   REGISTER_USER,
+  SHOW_MODAL,
   UPDATE_PROFILE
 } from "../constants/users";
 import axios from "axios";
@@ -135,4 +138,58 @@ export const updateProfile = (payload) => (dispatch) => {
         }
       })
     });
+}
+
+export const forgotPassword = (payload) => (dispatch) => {
+  // loading
+  dispatch({
+    type: FORGOT_PASSWORD,
+    payload: {
+      loading: true,
+      data: false,
+      error: false,
+      redirect: false
+    }
+  })
+
+  axios
+    .put(`https://impostorteam-app.herokuapp.com/api/forgot-password`, { email: payload })
+    .then((res) => {
+      console.log('res forgot-password:', res);
+      dispatch({
+        type: FORGOT_PASSWORD,
+        payload: {
+          loading: false,
+          data: res.status,
+          error: false,
+          redirect: false
+        }
+      })
+    })
+    .catch((err) => {
+      console.log("error: ", err);
+      dispatch({
+        type: FORGOT_PASSWORD,
+        payload: {
+          loading: false,
+          data: false,
+          error: err,
+          redirect: false
+        }
+      })
+    });
+}
+
+export const showModal = () => {
+  return {
+    type: SHOW_MODAL,
+    payload: true
+  }
+}
+
+export const hiddenModal = () => {
+  return {
+    type: HIDDEN_MODAL,
+    payload: false
+  }
 }
