@@ -56,6 +56,9 @@ const List = () => {
                   <Button variant='outlined' size='small' onClick={handleOnClick}>
                     Play
                   </Button>
+                  <button className='disable px-2 py-1 rounded-sm border-gray-400 bg-gray-400 text-white'>
+                    Pernah Dimainkan
+                  </button>
                 </CardActions>
               </Card>
             </Grid>
