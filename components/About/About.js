@@ -4,9 +4,9 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 export default function About() {
   return (
-    <section className="pt-80 bg-section bg-cover">
+    <section className="bg-[#5956E9] bg-cover">
       <div className="w-8/12 container">
-        <div>
+        <div className="">
           <SectionTitle className="text-white text-center my-20">
             What's on the impostor website
           </SectionTitle>
