@@ -9,21 +9,36 @@ import {
   Button,
 } from '@mui/material';
 import Modal from '../../Modal';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { showModal } from '../../../redux/actions/users';
+import { playedGame1 } from '../../../redux/actions/game';
 import { useRouter } from 'next/router';
+import { LastPlayed } from '../LastPlayed';
 
-const List = () => {
+const List = (props) => {
+  // const [played, setPlayed] = useState(false)
   const modal = useSelector((state) => state.users.modal);
   const dispatch = useDispatch();
   const router = useRouter()
 
+  const { showModal, playedGame1, played1, played2, played3, played4, played5, played6 } = props;
+
+  // useEffect(() => {
+  //   const score1 = localStorage.getItem("score");
+  //   console.log('score1:', score1);
+  // }, [])
+
   const handleOnClick = () => {
-    dispatch(showModal());
+    // dispatch(showModal());
+    showModal()
+    // setPlayed(true)
   };
 
   const handlePlayGame = () => {
     router.push('/game')
+    playedGame1()
+    // setPlayed(true)
   }
   return (
     <main>
@@ -34,12 +49,19 @@ const List = () => {
           List Game
         </Typography>
         <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6} md={4} className='overflow-hidden'>
             <Card className='h-full flex flex-col'>
-              <CardMedia
-                image='./images/game1.png'
-                sx={{ paddingTop: '60%' }}
-              />
+              <div className='relative'>
+                <CardMedia
+                  image='./images/game1.png'
+                  sx={{ paddingTop: '60%' }}
+                />
+                {
+                  played1 && (
+                    <LastPlayed />
+                  )
+                }
+              </div>
               <CardContent className='flex-grow'>
                 <Typography variant='h5' className='font-body'>
                   Rock Paper Scissor
@@ -63,10 +85,17 @@ const List = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card className='h-full flex flex-col'>
-              <CardMedia
-                image='./images/game2.png'
-                sx={{ paddingTop: '60%' }}
-              />
+              <div className='relative'>
+                <CardMedia
+                  image='./images/game2.png'
+                  sx={{ paddingTop: '60%' }}
+                />
+                {
+                  played2 && (
+                    <LastPlayed />
+                  )
+                }
+              </div>
               <CardContent className='flex-grow'>
                 <Typography variant='h5' className='font-body'>
                   Super Mario Car
@@ -85,10 +114,17 @@ const List = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card className='h-full flex flex-col'>
-              <CardMedia
-                image='./images/game3.png'
-                sx={{ paddingTop: '60%' }}
-              />
+              <div className='relative'>
+                <CardMedia
+                  image='./images/game3.png'
+                  sx={{ paddingTop: '60%' }}
+                />
+                {
+                  played3 && (
+                    <LastPlayed />
+                  )
+                }
+              </div>
               <CardContent className='flex-grow'>
                 <Typography variant='h5' className='font-body'>
                   Assassin Creed
@@ -107,10 +143,17 @@ const List = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card className='h-full flex flex-col'>
-              <CardMedia
-                image='./images/game4.png'
-                sx={{ paddingTop: '60%' }}
-              />
+              <div className='relative'>
+                <CardMedia
+                  image='./images/game4.png'
+                  sx={{ paddingTop: '60%' }}
+                />
+                {
+                  played4 && (
+                    <LastPlayed />
+                  )
+                }
+              </div>
               <CardContent className='flex-grow'>
                 <Typography variant='h5' className='font-body'>
                   Squid Game
@@ -129,10 +172,17 @@ const List = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card className='h-full flex flex-col'>
-              <CardMedia
-                image='./images/game5.png'
-                sx={{ paddingTop: '60%' }}
-              />
+              <div className='relative'>
+                <CardMedia
+                  image='./images/game5.png'
+                  sx={{ paddingTop: '60%' }}
+                />
+                {
+                  played5 && (
+                    <LastPlayed />
+                  )
+                }
+              </div>
               <CardContent className='flex-grow'>
                 <Typography variant='h5' className='font-body'>
                   Bom Car
@@ -151,10 +201,17 @@ const List = () => {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card className='h-full flex flex-col'>
-              <CardMedia
-                image='./images/game6.png'
-                sx={{ paddingTop: '60%' }}
-              />
+              <div className='relative'>
+                <CardMedia
+                  image='./images/game6.png'
+                  sx={{ paddingTop: '60%' }}
+                />
+                {
+                  played6 && (
+                    <LastPlayed />
+                  )
+                }
+              </div>
               <CardContent className='flex-grow'>
                 <Typography variant='h5' className='font-body'>
                   Kena Bridge of spirits
@@ -177,4 +234,18 @@ const List = () => {
   );
 };
 
-export default List;
+const mapStateToProps = (state) => ({
+  played1: state.game.played1,
+  played2: state.game.played2,
+  played3: state.game.played3,
+  played4: state.game.played4,
+  played5: state.game.played5,
+  played6: state.game.played6,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  showModal: () => dispatch(showModal()),
+  playedGame1: () => dispatch(playedGame1())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(List)

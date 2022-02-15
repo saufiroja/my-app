@@ -2,6 +2,12 @@ import {
   CALCULATE_RESULT,
   DECREMENT_SCORE,
   INCREMENT_SCORE,
+  PLAYED_GAME_1,
+  PLAYED_GAME_2,
+  PLAYED_GAME_3,
+  PLAYED_GAME_4,
+  PLAYED_GAME_5,
+  PLAYED_GAME_6,
   RESET,
   SET_COMPUTER_FINGER,
   SET_SCORE_FROM_LOCALSTORAGE,
@@ -15,6 +21,12 @@ export const gameState = {
   computerFinger: "",
   result: "",
   score: 0,
+  played1: false,
+  played2: false,
+  played3: false,
+  played4: false,
+  played5: false,
+  played6: false,
 };
 
 export const gameReducer = (state = gameState, action) => {
@@ -83,6 +95,43 @@ export const gameReducer = (state = gameState, action) => {
         ...state,
         score: newScore2
       };
+
+    case PLAYED_GAME_1:
+      return{
+        ...state,
+        played1: action.payload
+      }
+
+    case PLAYED_GAME_2:
+      return{
+        ...state,
+        played2: action.payload
+      }
+
+    case PLAYED_GAME_3:
+    return{
+      ...state,
+      played3: action.payload
+    }
+
+    case PLAYED_GAME_4:
+    return{
+      ...state,
+      played4: action.payload
+    }
+
+    case PLAYED_GAME_5:
+    return{
+      ...state,
+      played5: action.payload
+    }
+
+    case PLAYED_GAME_6:
+    return{
+      ...state,
+      played6: action.payload
+    }
+
     default:
       return state;
   }
