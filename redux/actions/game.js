@@ -3,6 +3,7 @@ import {
   CALCULATE_RESULT,
   DECREMENT_SCORE,
   INCREMENT_SCORE,
+  PLAYED_GAME_1,
   RESET,
   SET_COMPUTER_FINGER,
   SET_SCORE_FROM_LOCALSTORAGE,
@@ -65,5 +66,12 @@ export const incrementScore = () => {
 export const decrementScore = () => {
   return {
     type: DECREMENT_SCORE,
+  };
+};
+
+export const playedGame1 = () => {
+  return {
+    type: PLAYED_GAME_1,
+    payload: true
   };
 };
