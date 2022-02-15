@@ -7,7 +7,7 @@ export default function Button({ className, variant, children }) {
   const pickedVariant = variants[variant];
   return (
     <a
-      className={`text-lg py-3 px-10 rounded-2.5xl inline-block cursor-pointer ${pickedVariant} ${addClassName}`}
+      className={`xl:text-lg xl:py-3 xl:px-10 lg:text-lg lg:py-3 lg:px-8 md:px-6 md:text-md md:py-2.5 sm:px-6 sm:text-sm sm:py-2.5 rounded-2.5xl inline-block ${pickedVariant} ${addClassName}`}
     >
       {children}
     </a>
