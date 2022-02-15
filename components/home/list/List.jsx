@@ -11,14 +11,20 @@ import {
 import Modal from '../../Modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { showModal } from '../../../redux/actions/users';
+import { useRouter } from 'next/router';
 
 const List = () => {
   const modal = useSelector((state) => state.users.modal);
   const dispatch = useDispatch();
+  const router = useRouter()
 
   const handleOnClick = () => {
     dispatch(showModal());
   };
+
+  const handlePlayGame = () => {
+    router.push('/game')
+  }
   return (
     <main>
       {modal && <Modal />}
@@ -45,10 +51,10 @@ const List = () => {
               </CardContent>
               <CardActions>
                 <Button
-                  href='/game'
+                  // href='/game'
                   variant='outlined'
                   size='small'
-                  onClick={handleOnClick}
+                  onClick={handlePlayGame}
                 >
                   Play
                 </Button>
@@ -71,7 +77,7 @@ const List = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small'>
+                <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
                 </Button>
               </CardActions>
@@ -93,7 +99,7 @@ const List = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small'>
+                <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
                 </Button>
               </CardActions>
@@ -115,7 +121,7 @@ const List = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small'>
+                <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
                 </Button>
               </CardActions>
@@ -137,7 +143,7 @@ const List = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small'>
+                <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
                 </Button>
               </CardActions>
@@ -159,7 +165,7 @@ const List = () => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small'>
+                <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
                 </Button>
               </CardActions>
