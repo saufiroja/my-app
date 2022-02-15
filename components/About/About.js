@@ -4,7 +4,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 export default function About() {
   return (
-    <section className="pt-80 bg-section bg-cover">
+    <section className="pt-80 bg-section bg-cover" id="about">
       <div className="w-8/12 container">
         <div>
           <SectionTitle className="text-white text-center my-20">

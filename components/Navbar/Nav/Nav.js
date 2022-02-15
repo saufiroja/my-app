@@ -3,7 +3,7 @@ export default function Nav() {
   return (
     <ul className="flex -ml-32 space-x-10">
       <NavItem>Home</NavItem>
-      <NavItem>About</NavItem>
+      <NavItem href="/login">About</NavItem>
     </ul>
   );
 }
