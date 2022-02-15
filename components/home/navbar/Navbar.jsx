@@ -16,12 +16,15 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { clearState } from '../../../redux/actions/users';
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const router = useRouter()
+  const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -46,6 +49,7 @@ const Navbar = () => {
     sessionStorage.clear();
     localStorage.removeItem("data")
     localStorage.removeItem("score")
+    dispatch(clearState())
     router.push('/')
   }
 

@@ -1,4 +1,5 @@
 import {
+  CLEAR_STATE,
   ERROR_AUTH,
   FORGOT_PASSWORD,
   HIDDEN_MODAL,
@@ -17,7 +18,7 @@ export const registerUser = (payload) => async (dispatch) => {
       loading: true,
       data: false,
       error: false,
-      redirect: false
+      // redirect: false
     }
   })
 
@@ -31,7 +32,7 @@ export const registerUser = (payload) => async (dispatch) => {
           loading: false,
           data: res.data.data,
           error: false,
-          redirect: true
+          // redirect: true
         }
       })
     })
@@ -43,7 +44,7 @@ export const registerUser = (payload) => async (dispatch) => {
           loading: false,
           data: false,
           error: err.response.data,
-          redirect: false
+          // redirect: false
         }
       })
     })
@@ -191,5 +192,15 @@ export const hiddenModal = () => {
   return {
     type: HIDDEN_MODAL,
     payload: false
+  }
+}
+
+export const clearState = () => {
+  return {
+    type: CLEAR_STATE,
+    payload: {
+      user: null,
+      redirect: false
+    }
   }
 }
