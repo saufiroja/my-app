@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/link-passhref */
 /* eslint-disable react/no-unescaped-entities */
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import About from "../components/About/About";
@@ -13,6 +14,10 @@ import Navbar from "../components/Navbar/Navbar";
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>Impostor | Homepage</title>
+        <meta name="description" content="Impostor Website dengan Next JS" />
+      </Head>
       <div className="bg-hero bg-cover bg-primary h-[1050px]">
         <div className="container mx-auto">
           {/* Navbar */}
