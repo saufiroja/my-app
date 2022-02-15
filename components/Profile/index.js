@@ -18,7 +18,7 @@ export default function Profile() {
 
                         <figure className="bg-slate-100 rounded-xl p-8 mt-6 font-body">
                             {/* <img className="w-24 h-24 mt-3 rounded-full mx-auto" src="./images/kelinci.jpeg" alt="" width="384" height="512"/>  */}
-                            <Image src="/images/kelinci.jpeg" alt="profile-picture" width={384} height={512} className="w-24 h-24 mt-3 rounded-full mx-auto" />
+                            <Image src="/images/kelinci.jpeg" alt="profile-picture" width={200} height={200} className="w-24 h-24 mt-3 rounded-full mx-auto" />
                             <div className="pt-6 space-y-4">
                                 <figcaption className="font-medium">
                                 <div className="">
