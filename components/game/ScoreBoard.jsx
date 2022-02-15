@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setScoreFromLocalStorage } from "../../redux/actions/game";
-import axios from "axios";
 
 const ScoreBoard = () => {
   const [scoreEffect, setScoreEffect] = useState("");
@@ -9,47 +8,10 @@ const ScoreBoard = () => {
 
   const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   if (!result) return;
-  //   switch (result) {
-  //     case "win":
-  //       setScoreEffect("bg-green-200");
-  //       break;
-  //     case "lose":
-  //       setScoreEffect("bg-red-200");
-  //       break;
-  //   }
-  // }, [result]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setScoreEffect("");
-  //   }, 600);
-  // }, [scoreEffect]);
-
   useEffect(() => {
     dispatch(setScoreFromLocalStorage(score));
     console.log('scoreboard: ', score);
   }, [dispatch, score]);
-
-  // useEffect(() => {
-  //   const myProfile = JSON.parse(localStorage.getItem('data'))
-  //   const data  = myProfile.data.data
-  //   const newData = {
-  //     score: score,
-  //     id: data.id
-  //   };
-  //   console.log('newData score:', newData);
-  //   axios
-  //     .put(`https://impostorteam-app.herokuapp.com/api/users/score/${newData.id}`, newData)
-  //     .then((res) => {
-  //       localStorage.setItem('data', JSON.stringify(res))
-  //       console.log('res score:', res);
-  //     })
-  //     .catch((err) => {
-  //       console.log("error: ", err);
-  //     });
-  // }, [score])
 
   return (
     <div
