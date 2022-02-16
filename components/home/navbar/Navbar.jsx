@@ -12,6 +12,7 @@ import {
   Box,
   Button,
   Avatar,
+  Link,
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -80,7 +81,9 @@ const Navbar = () => {
             >
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography className='text-body' textAlign='center'>
-                  Home
+                  <Link href='/' color='inherit'>
+                    Home
+                  </Link>
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -109,6 +112,7 @@ const Navbar = () => {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               className='text-body'
+              href='/'
             >
               Home
             </Button>
@@ -152,7 +156,7 @@ const Navbar = () => {
             >
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography textAlign='center' className='text-body'>
-                  Profile
+                  <Link href='/profile'>Profile</Link>
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseUserMenu}>
