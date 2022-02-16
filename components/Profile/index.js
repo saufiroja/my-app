@@ -15,7 +15,7 @@ export default function Profile() {
     const router = useRouter()
 
     useEffect(() => {
-        const token  = localStorage.getItem("token");
+        const token  = sessionStorage.getItem("token");
         if (!token) {
             return router.push('/')
         }
@@ -30,6 +30,10 @@ export default function Profile() {
         console.log('diklik!');
     }
 
+    const handleOnClick = () => {
+        router.push('/home')
+    }
+
     return (
         <div className='bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden'>
             <AssetKuning />
@@ -37,43 +41,38 @@ export default function Profile() {
             <AssetGame />
             <AssetBatu />
             <div className="container px-[6%]">
-                <img class="mt-[3%]" src="/images/feature.svg" alt="" width="200" height="40"></img>
+                <div className="mt-6">
+                    <Image src="/images/feature.svg" className="mt-6 cursor-pointer" alt="feature" width={200} height={40} onClick={handleOnClick}/>
+                </div>
                 <div className="flex flex-row">
                     <div className="basis-1/3 h-screen">
-                        <button className="bg-sky-600 hover:bg-sky-700 rounded-large px-9 py-[15px] flex flex-nowrap justify-center mt-12">
+                        <button className="bg-sky-600 hover:bg-sky-700 rounded-large px-9 py-[15px] flex flex-nowrap justify-center mt-10">
                             <FontAwesomeIcon icon={faUser} className="mt-1"/>
                             <h3 className="mx-3 text-slate-50">My Profile</h3>
                         </button>
 
-                        <figure className="bg-slate-100 rounded-xl p-8 mt-6 font-body relative">
-                            {/* <Image src="/images/kelinci.jpeg" alt="profile-picture" width={100} height={100} className="rounded-full]" /> */}
-                            <img class="w-24 h-24 rounded-full mx-auto" src="/images/kelinci.jpeg" alt="" width="384" height="512"></img>
-                            <div className="pt-6 space-y-4">
-                                <figcaption className="font-medium">
-                                <div className="">
-                                    <p className="mt-5 text-sky-500">Data Profile</p>
-                                    <p className="mt-5">Username:</p>
-                                    <p className="mt-5">Full Name:</p>
-                                    <p className="mt-5">Bio:</p>
-                                    <p className="mt-5">Score:</p>
+                        <div className="flex items-center justify-center">
+                            <div className="bg-slate-100 rounded-xl p-8 mt-6 font-body relative w-full">
+                                <Image src="/images/kelinci.jpeg" className="w-24 h-24 rounded-full mx-auto" alt="kelinci" width={150} height={150}/>
+                                <div className="pt-6 space-y-4">
+                                    <figcaption className="font-medium">
+                                    <div>
+                                        <p className="mt-5 text-sky-500">Data Profile</p>
+                                        <p className="mt-5">Username:</p>
+                                        <p className="mt-5">Full Name:</p>
+                                        <p className="mt-5">Bio:</p>
+                                        <p className="mt-5">Score:</p>
+                                    </div>
+                                    </figcaption>
                                 </div>
-                                </figcaption>
                             </div>
-                        </figure>
+                        </div>
                     </div>
 
                     <div className="basis-1/3 ml-8">
                         <div className="flex w-full">
                             <input className="focus:ring-2 focus:ring-blue-500 focus:outline-none mt-[126px] appearance-none text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-xl pl-10 ml-4 w-5/6 py-4 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Search Username..."></input>
                         </div>
-
-                        {/* <figure className="w-[66%] ml-8 md:flex rounded-xl bg-slate-100">
-                            <div className="md:p-4 text-center md:text-left">
-                                <p className="text-lg font-medium">
-                                    Saufi Roja
-                                </p>
-                            </div>
-                        </figure> */}
                         <CardUser 
                             users={users}
                             handleDetailUser={handleDetailUser}
