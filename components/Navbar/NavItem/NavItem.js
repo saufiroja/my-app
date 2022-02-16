@@ -1,9 +1,11 @@
 import Link from "next/link";
 
-export default function NavItem({ children }) {
+export default function NavItem({ href, children }) {
   return (
     <li>
-      <a className="text-white text-lg cursor-pointer">{children}</a>
+      <a href={href} className="text-white text-lg cursor-pointer">
+        {children}
+      </a>
     </li>
   );
 }
