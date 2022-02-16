@@ -37,17 +37,18 @@ export default function Profile() {
             <AssetGame />
             <AssetBatu />
             <div className="container px-[6%]">
-                <img class="mt-[3%]" src="/images/feature.svg" alt="" width="200" height="40"></img>
+                <div className="xl:w-[320px] lg:w-[280px] mt-[2.7%]">
+                    <img src="/images/feature.svg" alt="" width="180" height="40"></img>
+                </div>
                 <div className="flex flex-row">
                     <div className="basis-1/3 h-screen">
-                        <button className="bg-sky-600 hover:bg-sky-700 rounded-large px-9 py-[15px] flex flex-nowrap justify-center mt-12">
+                        <button className="bg-sky-600 hover:bg-sky-700 rounded-large px-9 py-[14px] flex flex-nowrap justify-center xl:mt-12 lg:mt-8">
                             <FontAwesomeIcon icon={faUser} className="mt-1"/>
                             <h3 className="mx-3 text-slate-50">My Profile</h3>
                         </button>
 
                         <figure className="bg-slate-100 rounded-xl p-8 mt-6 font-body relative">
-                            {/* <Image src="/images/kelinci.jpeg" alt="profile-picture" width={100} height={100} className="rounded-full]" /> */}
-                            <img class="w-24 h-24 rounded-full mx-auto" src="/images/kelinci.jpeg" alt="" width="384" height="512"></img>
+                            <img class="xl:w-24 xl:h-24 lg:w-20 lg:h-20 rounded-full mx-auto" src="/images/kelinci.jpeg" alt="" width="384" height="512"></img>
                             <div className="pt-6 space-y-4">
                                 <figcaption className="font-medium">
                                 <div className="">
@@ -64,7 +65,7 @@ export default function Profile() {
 
                     <div className="basis-1/3 ml-8">
                         <div className="flex w-full">
-                            <input className="focus:ring-2 focus:ring-blue-500 focus:outline-none mt-[126px] appearance-none text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-xl pl-10 ml-4 w-5/6 py-4 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Search Username..."></input>
+                            <input className="focus:ring-2 focus:ring-blue-500 focus:outline-none xl:mt-[126px] lg:mt-[110px] appearance-none text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-xl pl-4 ml-4 w-5/6 xl:py-4 lg:py-3 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Search Username..."></input>
                         </div>
 
                         {/* <figure className="w-[66%] ml-8 md:flex rounded-xl bg-slate-100">
@@ -78,6 +79,7 @@ export default function Profile() {
                             users={users}
                             handleDetailUser={handleDetailUser}
                         />
+
                     </div>
                 </div>
             </div>
