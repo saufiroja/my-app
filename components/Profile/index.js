@@ -50,7 +50,6 @@ export default function Profile() {
                             <FontAwesomeIcon icon={faUser} className="mt-1"/>
                             <h3 className="mx-3 text-slate-50">My Profile</h3>
                         </button>
-
                         <div className="flex items-center justify-center">
                             <div className="bg-slate-100 rounded-xl p-8 mt-6 font-body relative w-full">
                                 <Image src="/images/kelinci.jpeg" className="w-24 h-24 rounded-full mx-auto" alt="kelinci" width={150} height={150}/>
@@ -71,12 +70,13 @@ export default function Profile() {
 
                     <div className="basis-1/3 ml-8">
                         <div className="flex w-full">
-                            <input className="focus:ring-2 focus:ring-blue-500 focus:outline-none mt-[126px] appearance-none text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-xl pl-10 ml-4 w-5/6 py-4 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Search Username..."></input>
+                            <input className="focus:ring-2 focus:ring-blue-500 focus:outline-none xl:mt-[126px] lg:mt-[110px] appearance-none text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-xl pl-4 ml-4 w-5/6 xl:py-4 lg:py-3 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Search Username..."></input>
                         </div>
                         <CardUser 
                             users={users}
                             handleDetailUser={handleDetailUser}
                         />
+
                     </div>
                 </div>
             </div>
