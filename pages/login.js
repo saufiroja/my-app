@@ -40,7 +40,7 @@ function Login(props) {
 
   useEffect(() => {
     if (redirect) {
-      router.push('/edit-profile');
+      router.push('/home');
     } else {
       console.log('redirect: ', redirect);
     }

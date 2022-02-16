@@ -16,10 +16,16 @@ import {
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { clearState } from '../../../redux/actions/users';
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const router = useRouter();
+  const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -34,6 +40,18 @@ const Navbar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
+  };
+
+  const handleProfile = () => {
+    router.push('/profile');
+  };
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+    localStorage.removeItem('data');
+    localStorage.removeItem('score');
+    dispatch(clearState());
+    router.push('/');
   };
 
   return (
@@ -155,12 +173,20 @@ const Navbar = () => {
               onClose={handleCloseUserMenu}
             >
               <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign='center' className='text-body'>
-                  <Link href='/profile'>Profile</Link>
+                <Typography
+                  textAlign='center'
+                  className='text-body'
+                  onClick={handleProfile}
+                >
+                  Profile
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign='center' className='text-body'>
+                <Typography
+                  textAlign='center'
+                  className='text-body'
+                  onClick={handleLogout}
+                >
                   Logout
                 </Typography>
               </MenuItem>

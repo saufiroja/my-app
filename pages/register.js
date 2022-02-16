@@ -43,13 +43,13 @@ function Register(props) {
     }
   }, [error])
 
-  useEffect(() => {
-    if(redirect){
-      router.push('/')
-    } else {
-      console.log('redirect: ', redirect);
-    }
-  }, [redirect, router])
+  // useEffect(() => {
+  //   if(redirect){
+  //     router.push('/')
+  //   } else {
+  //     console.log('redirect: ', redirect);
+  //   }
+  // }, [redirect, router])
 
   return (
     <div className="bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden">
