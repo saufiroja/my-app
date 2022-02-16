@@ -57,7 +57,7 @@ function Login(props) {
       <div className='container py-14'>
         {/* Navbar */}
         <nav>
-          <div className='flex items-center justify-start'>
+          <div className='flex items-center justify-start xl:ml-[5%] lg:ml-[5%] md:ml-[12%]'>
             <Image
               src='/images/impostor-logo.svg'
               alt='impostor-logo'
