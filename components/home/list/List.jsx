@@ -37,7 +37,7 @@ const List = (props) => {
           List Game
         </Typography>
         <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={4} className='overflow-hidden'>
+          <Grid item xs={12} sm={6} md={4}>
             <Card className='h-full flex flex-col'>
               <div className='relative'>
                 <CardMedia

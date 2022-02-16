@@ -12,6 +12,12 @@ import CardUser from "../CardUsers";
 
 export default function Profile() {
     const [users, setUsers] = useState('')
+    const [username, setUsername] = useState('-')
+    const [name, setName] = useState('-')
+    const [bio, setBio] = useState('-')
+    const [userScore, setUserScore] = useState('-')
+    const [myProfile, setMyProfile] = useState(false)
+
     const router = useRouter()
 
     useEffect(() => {
@@ -26,12 +32,46 @@ export default function Profile() {
         })
     }, [router])
 
-    const handleDetailUser = () => {
-        console.log('diklik!');
+    const handleDetailUser = (user) => {
+        const username = user.username
+        axios.get(`https://impostorteam-app.herokuapp.com/api/user/${username}`)
+        .then((res) => {
+            console.log("res detail:", res.data);
+            const myProfile = JSON.parse(localStorage.getItem('data'))
+            const id = user.id
+            if(myProfile.data.data.id === id){
+                setMyProfile(true)
+            } else {
+                setMyProfile(false)
+            }
+            setUsername(res.data.data.username)
+            setName(res.data.data.name)
+            setBio(res.data.data.bio)
+            setUserScore(res.data.data.score)
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }
+
+    const handleMyProfile = () => {
+        const myProfile = JSON.parse(localStorage.getItem('data'))
+        if(myProfile) {
+            console.log('myProfile:', myProfile);
+            setUsername(myProfile.data.data.username)
+            setName(myProfile.data.data.name)
+            setBio(myProfile.data.data.bio)
+            setUserScore(myProfile.data.data.score)
+            setMyProfile(true)
+        }
     }
 
     const handleOnClick = () => {
         router.push('/home')
+    }
+
+    const handleUpdate = () => {
+        router.push('/edit-profile')
     }
 
     return (
@@ -46,23 +86,26 @@ export default function Profile() {
                 </div>
                 <div className="flex flex-row">
                     <div className="basis-1/3 h-screen">
-                        <button className="bg-sky-600 hover:bg-sky-700 rounded-large px-9 py-[15px] flex flex-nowrap justify-center mt-10">
+                        <button className="bg-sky-600 hover:bg-sky-700 rounded-large px-9 py-[15px] flex flex-nowrap justify-center mt-6" onClick={handleMyProfile}>
                             <FontAwesomeIcon icon={faUser} className="mt-1"/>
-                            <h3 className="mx-3 text-slate-50">My Profile</h3>
+                            <h3 className="mx-3 text-slate-50 hover:underline">My Profile</h3>
                         </button>
                         <div className="flex items-center justify-center">
                             <div className="bg-slate-100 rounded-xl p-8 mt-6 font-body relative w-full">
                                 <Image src="/images/kelinci.jpeg" className="w-24 h-24 rounded-full mx-auto" alt="kelinci" width={150} height={150}/>
                                 <div className="pt-6 space-y-4">
-                                    <figcaption className="font-medium">
                                     <div>
-                                        <p className="mt-5 text-sky-500">Data Profile</p>
-                                        <p className="mt-5">Username:</p>
-                                        <p className="mt-5">Full Name:</p>
-                                        <p className="mt-5">Bio:</p>
-                                        <p className="mt-5">Score:</p>
+                                        <p className="mt-5 text-sky-500 text-center">Data Profile</p>
+                                        <p className="mt-5">Username: {username}</p>
+                                        <p className="mt-5">Full Name: {name}</p>
+                                        <p className="mt-5">Bio: {bio}</p>
+                                        <p className="mt-5">Score: {userScore}</p>
                                     </div>
-                                    </figcaption>
+                                    {
+                                        myProfile && (
+                                            <button className='bg-primary text-white h-12 rounded-large mt-4 hover:bg-blue-700 w-full' onClick={handleUpdate}>Update</button>
+                                        )
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -76,7 +119,6 @@ export default function Profile() {
                             users={users}
                             handleDetailUser={handleDetailUser}
                         />
-
                     </div>
                 </div>
             </div>
