@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { updateProfile } from '../redux/actions/users';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import AssetKuning from '../components/Assets/AssetKuning';
 import LingkaranKuning from '../components/Assets/LingkaranKuning';
 import AssetUngu from '../components/Assets/AssetUngu';
@@ -9,9 +11,17 @@ import AssetBatu from '../components/Assets/AssetBatu';
 
 const EditProfile = (props) => {
   const { user, updateProfile, isLoading } = props;
-  const [username, setUsername] = useState(user.data.username);
-  const [name, setName] = useState(user.data.name);
-  const [bio, setBio] = useState(user.data.bio);
+  const myProfile = JSON.parse(localStorage.getItem('data'))
+  const data  = myProfile.data.data
+  const [username, setUsername] = useState(data.username);
+  const [name, setName] = useState(data.name);
+  const [bio, setBio] = useState(data.bio);
+
+  const router = useRouter()
+
+  const onInputUsername = (e) => {
+    setUsername(e.target.value)
+  }
 
   const handleUpdate = () => {
     const data = {
@@ -23,6 +33,9 @@ const EditProfile = (props) => {
 
     console.log('data update: ', data);
     updateProfile(data);
+    setTimeout(() => {
+      router.push('/profile')
+    }, 3000);
   };
   return (
     <div className='bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden'>
@@ -44,7 +57,7 @@ const EditProfile = (props) => {
             aria-label='Filter projects'
             placeholder='Username'
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={onInputUsername}
           />
 
           <p className='text-left mt-4'>FullName</p>
@@ -82,9 +95,9 @@ const EditProfile = (props) => {
           )}
           <div className='flex text-slate-700'>
             <p className='mt-4'>Back To Profile?</p>
-            <p className='mt-4 underline underline-offset-4 text-blue-600 ml-4'>
-              Klick Here
-            </p>
+            <Link href='/home'>
+              <a className='text-blue-400 underline mt-4 px-2'>Klick Here</a>
+            </Link>
           </div>
         </div>
       </div>

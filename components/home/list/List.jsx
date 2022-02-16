@@ -9,36 +9,24 @@ import {
   Button,
 } from '@mui/material';
 import Modal from '../../Modal';
-import React, { useEffect, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 import { showModal } from '../../../redux/actions/users';
 import { playedGame1 } from '../../../redux/actions/game';
 import { useRouter } from 'next/router';
 import { LastPlayed } from '../LastPlayed';
 
 const List = (props) => {
-  // const [played, setPlayed] = useState(false)
-  const modal = useSelector((state) => state.users.modal);
-  const dispatch = useDispatch();
   const router = useRouter()
-
-  const { showModal, playedGame1, played1, played2, played3, played4, played5, played6 } = props;
-
-  // useEffect(() => {
-  //   const score1 = localStorage.getItem("score");
-  //   console.log('score1:', score1);
-  // }, [])
-
+  const { showModal, playedGame1, modal, played1, played2, played3, played4, played5, played6 } = props;
   const handleOnClick = () => {
-    // dispatch(showModal());
     showModal()
-    // setPlayed(true)
   };
 
   const handlePlayGame = () => {
     router.push('/game')
-    playedGame1()
-    // setPlayed(true)
+    setTimeout(() => {
+      playedGame1()
+    }, 6000);
   }
   return (
     <main>
@@ -49,7 +37,7 @@ const List = (props) => {
           List Game
         </Typography>
         <Grid container spacing={4}>
-          <Grid item xs={12} sm={6} md={4} className='overflow-hidden'>
+          <Grid item xs={12} sm={6} md={4}>
             <Card className='h-full flex flex-col'>
               <div className='relative'>
                 <CardMedia
@@ -235,6 +223,7 @@ const List = (props) => {
 };
 
 const mapStateToProps = (state) => ({
+  modal: state.users.modal,
   played1: state.game.played1,
   played2: state.game.played2,
   played3: state.game.played3,

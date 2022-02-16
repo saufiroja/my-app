@@ -12,6 +12,7 @@ import {
   Box,
   Button,
   Avatar,
+  Link,
 } from '@mui/material';
 
 import MenuIcon from '@mui/icons-material/Menu';
@@ -23,7 +24,7 @@ const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const router = useRouter()
+  const router = useRouter();
   const dispatch = useDispatch();
 
   const handleOpenNavMenu = (event) => {
@@ -42,16 +43,16 @@ const Navbar = () => {
   };
 
   const handleProfile = () => {
-    router.push('/profile')
-  }
+    router.push('/profile');
+  };
 
   const handleLogout = () => {
     sessionStorage.clear();
-    localStorage.removeItem("data")
-    localStorage.removeItem("score")
-    dispatch(clearState())
-    router.push('/')
-  }
+    localStorage.removeItem('data');
+    localStorage.removeItem('score');
+    dispatch(clearState());
+    router.push('/');
+  };
 
   return (
     <AppBar position='static'>
@@ -98,7 +99,9 @@ const Navbar = () => {
             >
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography className='text-body' textAlign='center'>
-                  Home
+                  <Link href='/' color='inherit'>
+                    Home
+                  </Link>
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
@@ -127,6 +130,7 @@ const Navbar = () => {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               className='text-body'
+              href='/'
             >
               Home
             </Button>
@@ -149,7 +153,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar src='/static/images/avatar/2.jpg' />
+                <Avatar src='./images/kelinci.jpeg' />
               </IconButton>
             </Tooltip>
             <Menu
@@ -169,12 +173,20 @@ const Navbar = () => {
               onClose={handleCloseUserMenu}
             >
               <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign='center' className='text-body' onClick={handleProfile}>
+                <Typography
+                  textAlign='center'
+                  className='text-body'
+                  onClick={handleProfile}
+                >
                   Profile
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseUserMenu}>
-                <Typography textAlign='center' className='text-body' onClick={handleLogout}>
+                <Typography
+                  textAlign='center'
+                  className='text-body'
+                  onClick={handleLogout}
+                >
                   Logout
                 </Typography>
               </MenuItem>
