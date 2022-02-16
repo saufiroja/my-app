@@ -65,16 +65,13 @@ export const loginUser = (payload) => async (dispatch) => {
   // post data
   await axios.post(`https://impostorteam-app.herokuapp.com/api/login`, payload)
     .then((res) => {
-      console.log("success: ", res);
       console.log("res login: ", res);
-      const token = res.data.token;
-      sessionStorage.setItem("token", token);
-      sessionStorage.setItem("username", res.data.data.data.username);
+      console.log('token:', token);
+      localStorage.setItem("token", token);
+      // sessionStorage.setItem("username", res.data.data.data.username);
       const userToken = sessionStorage.getItem("token");
       if (userToken) {
         localStorage.setItem("data", JSON.stringify(res.data));
-        // localStorage.setItem("userId", res.data.data.user.id);
-        // setRedirect(true);
       }
       dispatch({
         type: LOGIN_USER,
