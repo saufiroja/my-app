@@ -13,9 +13,8 @@ import {
   SET_SCORE_FROM_LOCALSTORAGE,
   SET_USER_FINGER
 } from "../constants/game";
+import Cookies from "js-cookie";
 
-// const myProfile = JSON.parse(localStorage.getItem('data'))
-// const data  = myProfile.data.data
 export const gameState = {
   userFinger: "",
   computerFinger: "",
@@ -73,8 +72,8 @@ export const gameReducer = (state = gameState, action) => {
       };
 
     case SET_SCORE_FROM_LOCALSTORAGE:
-      const score = localStorage.getItem("score");
-      if (!score) localStorage.setItem("score", 0);
+      const score = Cookies.get('score')
+      if (!score) Cookies.set("score", 0);
       return {
         ...state,
         score: action.payload
@@ -82,7 +81,7 @@ export const gameReducer = (state = gameState, action) => {
 
     case INCREMENT_SCORE:
       const newScore = state.score + 1;
-      localStorage.setItem("score", newScore);
+      Cookies.set("score", newScore);
       return {
         ...state,
         score: newScore
@@ -90,7 +89,7 @@ export const gameReducer = (state = gameState, action) => {
 
     case DECREMENT_SCORE:
       const newScore2 = state.score > 0 ? state.score - 1 : 0;
-      localStorage.setItem("score", newScore2);
+      Cookies.set("score", newScore2);
       return {
         ...state,
         score: newScore2

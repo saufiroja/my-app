@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from "js-cookie";
 import {
   CALCULATE_RESULT,
   DECREMENT_SCORE,
@@ -37,7 +38,7 @@ export const calculateResult = () => {
 };
 
 export const setScoreFromLocalStorage = (payload) => async (dispatch) => {
-  const myProfile = JSON.parse(localStorage.getItem('data'))
+  const myProfile = JSON.parse(Cookies.get('data'))
   const data = myProfile.data.data
   const newData = {
     score: payload,
@@ -46,7 +47,7 @@ export const setScoreFromLocalStorage = (payload) => async (dispatch) => {
   await axios
     .put(`https://impostorteam-app.herokuapp.com/api/users/score/${newData.id}`, newData)
     .then((res) => {
-      localStorage.setItem('data', JSON.stringify(res))
+      Cookies.set('data', JSON.stringify(res))
       dispatch({
         type: SET_SCORE_FROM_LOCALSTORAGE,
         payload: res.data.data.score

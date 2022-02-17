@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { updateProfile } from '../redux/actions/users';
 import Link from 'next/link';
@@ -8,16 +8,24 @@ import LingkaranKuning from '../components/Assets/LingkaranKuning';
 import AssetUngu from '../components/Assets/AssetUngu';
 import AssetGame from '../components/Assets/AssetGame';
 import AssetBatu from '../components/Assets/AssetBatu';
+import Cookies from 'js-cookie';
 
 const EditProfile = (props) => {
   const { user, updateProfile, isLoading } = props;
-  const myProfile = JSON.parse(localStorage.getItem('data'))
+  const myProfile = JSON.parse(Cookies.get('data'))
   const data  = myProfile.data.data
   const [username, setUsername] = useState(data.username);
   const [name, setName] = useState(data.name);
   const [bio, setBio] = useState(data.bio);
 
   const router = useRouter()
+
+  useEffect(() => {
+    const token = Cookies.get('token')
+    if (!token) {
+        return router.push('/')
+    }
+}, [router])
 
   const onInputUsername = (e) => {
     setUsername(e.target.value)

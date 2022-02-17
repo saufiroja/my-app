@@ -62,7 +62,7 @@ function Register(props) {
       <div className="container py-14">
         {/* Navbar */}
         <nav>
-          <div className='flex items-center justify-start'>
+          <div className='flex items-center justify-start xl:ml-[5%] lg:ml-[5%] md:ml-[12%]'>
             <Image src="/images/impostor-logo.svg" alt="impostor-logo" width={24} height={24} />
             <span className='font-bold px-2.5 text-2xl'>Impostor</span>
           </div>

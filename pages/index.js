@@ -4,12 +4,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import About from "../components/About/About";
-import Hero from "../components/Hero/Hero";
-import ListGame from "../components/ListGame/ListGame";
 import Button from "../components/Navbar/Button/Button";
 import Logo from "../components/Navbar/Logo/Logo";
 import Nav from "../components/Navbar/Nav/Nav";
-import Navbar from "../components/Navbar/Navbar";
 
 export default function Home() {
   return (
@@ -29,7 +26,7 @@ export default function Home() {
               <Nav />
             </div>
             <div className="w-3/12 space-x-5 text-right">
-              <Link href="/login" passHref>
+              <Link href="/login">
                 <a className="text-lg py-3 px-10 rounded-2.5xl inline-block cursor-pointer bg-white text-primary">
                   Login
                 </a>
@@ -63,35 +60,41 @@ export default function Home() {
           <div className="flex w-9/12 mx-auto mt-16">
             <div className="w-4/12">
               <Link href="/login">
-                <Image
-                  className="cursor-pointer"
-                  src="/images/game1.png"
-                  alt="game1"
-                  width={294}
-                  height={217}
-                />
+                <a>
+                  <Image
+                    className="cursor-pointer"
+                    src="/images/game1.png"
+                    alt="game1"
+                    width={294}
+                    height={217}
+                  />
+                </a>
               </Link>
             </div>
             <div className="w-4/12">
               <Link href="/login">
-                <Image
-                  className="cursor-pointer"
-                  src="/images/game2.png"
-                  alt="game2"
-                  width={294}
-                  height={217}
-                />
+                <a>
+                  <Image
+                    className="cursor-pointer"
+                    src="/images/game2.png"
+                    alt="game2"
+                    width={294}
+                    height={217}
+                  />
+                </a>
               </Link>
             </div>
             <div className="w-4/12">
               <Link href="/login">
-                <Image
-                  className="cursor-pointer"
-                  src="/images/game3.png"
-                  alt="game3"
-                  width={294}
-                  height={217}
-                />
+                <a>
+                  <Image
+                    className="cursor-pointer"
+                    src="/images/game3.png"
+                    alt="game3"
+                    width={294}
+                    height={217}
+                  />
+                </a>
               </Link>
             </div>
           </div>
@@ -164,8 +167,8 @@ export default function Home() {
                   placeholder="Enter email address"
                 />
               </form>
-              <Link href="">
-                <a className="mt-3 rounded-full bg-primary text-white xl:text-lg lg:text-md md:text-sm px-10 py-3 inline-block text-center">
+              <Link href="/#">
+                <a className="mt-3 rounded-full bg-primary text-white text-lg px-10 py-3 inline-block text-center">
                   SUBSCRIBE
                 </a>
               </Link>
