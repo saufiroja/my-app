@@ -20,6 +20,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { clearState } from '../../../redux/actions/users';
+import { clearStateGame } from '../../../redux/actions/game';
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -52,6 +53,7 @@ const Navbar = () => {
     Cookies.remove('score')
     Cookies.remove('token')
     dispatch(clearState());
+    dispatch(clearStateGame())
     router.push('/');
   };
 

@@ -12,20 +12,29 @@ import Cookies from 'js-cookie';
 
 const EditProfile = (props) => {
   const { user, updateProfile, isLoading } = props;
-  const myProfile = JSON.parse(Cookies.get('data'))
-  const data  = myProfile.data.data
-  const [username, setUsername] = useState(data.username);
-  const [name, setName] = useState(data.name);
-  const [bio, setBio] = useState(data.bio);
+  // const myProfile = JSON.parse(Cookies.get('data'))
+  // const data  = myProfile.data.data
+  const [username, setUsername] = useState(null);
+  const [name, setName] = useState(null);
+  const [bio, setBio] = useState(null);
 
   const router = useRouter()
 
   useEffect(() => {
-    const token = Cookies.get('token')
-    if (!token) {
-        return router.push('/')
-    }
-}, [router])
+    const myProfile = JSON.parse(Cookies.get('data'))
+    const data = myProfile.data.data;
+
+    setUsername(data.username);
+    setName(data.name);
+    setBio(data.bio);
+  }, []);
+
+//   useEffect(() => {
+//     const token = Cookies.get('token')
+//     if (!token) {
+//         return router.push('/')
+//     }
+// }, [router])
 
   const onInputUsername = (e) => {
     setUsername(e.target.value)
@@ -64,7 +73,8 @@ const EditProfile = (props) => {
             type='text'
             aria-label='Filter projects'
             placeholder='Username'
-            value={username}
+            // value={username}
+            value={username ?? "Loading..."}
             onChange={onInputUsername}
           />
 
@@ -74,7 +84,7 @@ const EditProfile = (props) => {
             type='text'
             aria-label='Filter projects'
             placeholder='Fullname'
-            value={name}
+            value={name ?? "Loading..."}
             onChange={(e) => setName(e.target.value)}
           />
 
@@ -84,7 +94,7 @@ const EditProfile = (props) => {
             type='text'
             aria-label='Filter projects'
             placeholder='Bio'
-            value={bio}
+            value={bio ?? "Loading..."}
             onChange={(e) => setBio(e.target.value)}
           />
           {isLoading ? (
