@@ -9,6 +9,7 @@ import {
   UPDATE_PROFILE
 } from "../constants/users";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 export const registerUser = (payload) => async (dispatch) => {
   // loading
@@ -68,11 +69,10 @@ export const loginUser = (payload) => async (dispatch) => {
       console.log("res login: ", res);
       const token = res.data.token;
       console.log('token:', token);
-      sessionStorage.setItem("token", token);
-      // sessionStorage.setItem("username", res.data.data.data.username);
-      const userToken = sessionStorage.getItem("token");
+      Cookies.set('token', token)
+      const userToken = Cookies.get("token");
       if (userToken) {
-        localStorage.setItem("data", JSON.stringify(res.data));
+        Cookies.set("data", JSON.stringify(res.data));
       }
       dispatch({
         type: LOGIN_USER,
@@ -114,7 +114,7 @@ export const updateProfile = (payload) => (dispatch) => {
     .put(`https://impostorteam-app.herokuapp.com/api/users/${payload.id}`, payload)
     .then((res) => {
       console.log('res update biodata:', res);
-      localStorage.setItem('data', JSON.stringify(res))
+      Cookies.set('data', JSON.stringify(res))
       dispatch({
         type: UPDATE_PROFILE,
         payload: {

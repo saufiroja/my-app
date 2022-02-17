@@ -8,10 +8,11 @@ import LingkaranKuning from '../components/Assets/LingkaranKuning';
 import AssetUngu from '../components/Assets/AssetUngu';
 import AssetGame from '../components/Assets/AssetGame';
 import AssetBatu from '../components/Assets/AssetBatu';
+import Cookies from 'js-cookie';
 
 const EditProfile = (props) => {
   const { user, updateProfile, isLoading } = props;
-  const myProfile = JSON.parse(localStorage.getItem('data'))
+  const myProfile = JSON.parse(Cookies.get('data'))
   const data  = myProfile.data.data
   const [username, setUsername] = useState(data.username);
   const [name, setName] = useState(data.name);

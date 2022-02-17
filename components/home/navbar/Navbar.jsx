@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Cookies from 'js-cookie';
 
 import {
   AppBar,
@@ -47,9 +48,9 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    sessionStorage.clear();
-    localStorage.removeItem('data');
-    localStorage.removeItem('score');
+    Cookies.remove('data')
+    Cookies.remove('score')
+    Cookies.remove('token')
     dispatch(clearState());
     router.push('/');
   };
