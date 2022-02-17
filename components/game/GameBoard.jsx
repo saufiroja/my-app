@@ -49,7 +49,7 @@ const GameBoard = () => {
         dispatch({ type: 'DECREMENT_SCORE' });
         break;
     }
-  }, [result]);
+  }, [result, dispatch]);
 
   if (!userFinger) {
     return (
