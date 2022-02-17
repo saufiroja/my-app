@@ -104,7 +104,7 @@ export default function Home() {
       {/* Footer */}
       <section className="py-20 font-body">
         <div className="container">
-          <div className="flex items-center">
+          <div className="flex xl:items-center lg:items-center">
             <div className="flex flex-col w-4/12 justify-start px-16">
               <div className="flex">
                 <Image
@@ -113,7 +113,7 @@ export default function Home() {
                   width={30}
                   height={30}
                 />
-                <span className="font-bold px-2.5 text-4xl text-primary">
+                <span className="font-bold xl:px-2.5 lg:px-2.5 md:px-0 xl:text-4xl lg:text-4xl md:text-3xl text-primary">
                   Impostor
                 </span>
               </div>
@@ -125,7 +125,7 @@ export default function Home() {
               </p>
             </div>
             <div className="w-4/12 px-16">
-              <h3 className="text-3xl">CONTRIBUTOR</h3>
+              <h3 className="xl:text-3xl lg:text-2xl">CONTRIBUTOR</h3>
               <ul className="mt-5">
                 <li>
                   <a href="#" className="text-lg">
@@ -154,18 +154,18 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="w-4/12 px-16">
-              <h3 className="text-3xl">Newsletter</h3>
+            <div className="xl:w-4/12 lg:w-4/12 md:w-[45%] px-16">
+              <h3 className="xl:text-3xl lg:text-2xl md:text-2xl sm:text-2xl">Newsletter</h3>
               <form className="mt-5">
                 <input
-                  className="w-full border rounded-full py-3 px-10"
+                  className="w-full border rounded-full py-3 xl:px-10 lg:px-7 md:px-2 sm:px-2"
                   type="text"
                   name="email"
                   placeholder="Enter email address"
                 />
               </form>
               <Link href="">
-                <a className="mt-3 rounded-full bg-primary text-white text-lg px-10 py-3 inline-block text-center">
+                <a className="mt-3 rounded-full bg-primary text-white xl:text-lg lg:text-md md:text-sm px-10 py-3 inline-block text-center">
                   SUBSCRIBE
                 </a>
               </Link>
