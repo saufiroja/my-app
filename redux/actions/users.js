@@ -69,9 +69,11 @@ export const loginUser = (payload) => async (dispatch) => {
       console.log("res login: ", res);
       const token = res.data.token;
       console.log('token:', token);
-      sessionStorage.setItem("token", token);
+      // sessionStorage.setItem("token", token);
+      Cookies.set('token', token)
       // sessionStorage.setItem("username", res.data.data.data.username);
-      const userToken = sessionStorage.getItem("token");
+      // const userToken = sessionStorage.getItem("token");
+      const userToken = Cookies.get('token')
       if (userToken) {
         // localStorage.setItem("data", JSON.stringify(res.data));
         Cookies.set('data', JSON.stringify(res.data))

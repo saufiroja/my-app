@@ -22,7 +22,8 @@ export default function Profile() {
     const router = useRouter()
 
     useEffect(() => {
-        const token  = sessionStorage.getItem("token");
+        // const token  = sessionStorage.getItem("token");
+        const token = Cookies.get('token')
         if (!token) {
             return router.push('/')
         }

@@ -50,11 +50,12 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    sessionStorage.clear();
+    // sessionStorage.clear();
     // localStorage.removeItem('data');
     // localStorage.removeItem('score');
     Cookies.remove('data')
     Cookies.remove('score')
+    Cookies.remove('token')
     dispatch(clearState());
     dispatch(clearStateGame())
     router.push('/');
