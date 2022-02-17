@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { updateProfile } from '../redux/actions/users';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Cookies from 'js-cookie'
 import AssetKuning from '../components/Assets/AssetKuning';
 import LingkaranKuning from '../components/Assets/LingkaranKuning';
 import AssetUngu from '../components/Assets/AssetUngu';
@@ -11,7 +12,8 @@ import AssetBatu from '../components/Assets/AssetBatu';
 
 const EditProfile = (props) => {
   const { user, updateProfile, isLoading } = props;
-  const myProfile = JSON.parse(localStorage.getItem('data'))
+  // const myProfile = JSON.parse(localStorage.getItem('data'))
+  const myProfile = JSON.parse(Cookies.get('data'))
   const data  = myProfile.data.data
   const [username, setUsername] = useState(data.username);
   const [name, setName] = useState(data.name);
@@ -54,7 +56,6 @@ const EditProfile = (props) => {
           <input
             className='focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-[40px] py-3 pl-4 ring-1 ring-slate-200 shadow-sm mt-2'
             type='text'
-            aria-label='Filter projects'
             placeholder='Username'
             value={username}
             onChange={onInputUsername}
@@ -64,7 +65,6 @@ const EditProfile = (props) => {
           <input
             className='focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-[40px] py-3 pl-4 ring-1 ring-slate-200 shadow-sm mt-2'
             type='text'
-            aria-label='Filter projects'
             placeholder='Fullname'
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -74,7 +74,6 @@ const EditProfile = (props) => {
           <input
             className='focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-[40px] py-3 pl-4 ring-1 ring-slate-200 shadow-sm mt-2'
             type='text'
-            aria-label='Filter projects'
             placeholder='Bio'
             value={bio}
             onChange={(e) => setBio(e.target.value)}

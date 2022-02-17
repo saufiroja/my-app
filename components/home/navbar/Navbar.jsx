@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Cookies from 'js-cookie'
 
 import {
   AppBar,
@@ -12,13 +13,15 @@ import {
   Box,
   Button,
   Avatar,
-  Link,
+  // Link,
 } from '@mui/material';
+import Link from 'next/link';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { clearState } from '../../../redux/actions/users';
+import { clearStateGame } from '../../../redux/actions/game';
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -48,9 +51,12 @@ const Navbar = () => {
 
   const handleLogout = () => {
     sessionStorage.clear();
-    localStorage.removeItem('data');
-    localStorage.removeItem('score');
+    // localStorage.removeItem('data');
+    // localStorage.removeItem('score');
+    Cookies.remove('data')
+    Cookies.remove('score')
     dispatch(clearState());
+    dispatch(clearStateGame())
     router.push('/');
   };
 
@@ -130,7 +136,7 @@ const Navbar = () => {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
               className='text-body'
-              href='/'
+              // href='/'
             >
               Home
             </Button>

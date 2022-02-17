@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   CALCULATE_RESULT,
+  CLEAR_STATE_GAME,
   DECREMENT_SCORE,
   INCREMENT_SCORE,
   PLAYED_GAME_1,
@@ -9,6 +10,7 @@ import {
   SET_SCORE_FROM_LOCALSTORAGE,
   SET_USER_FINGER
 } from "../constants/game";
+import Cookies from 'js-cookie'
 
 export const reset = () => {
   return {
@@ -37,7 +39,8 @@ export const calculateResult = () => {
 };
 
 export const setScoreFromLocalStorage = (payload) => async (dispatch) => {
-  const myProfile = JSON.parse(localStorage.getItem('data'))
+  // const myProfile = JSON.parse(localStorage.getItem('data'))
+  const myProfile = JSON.parse(Cookies.get('data'))
   const data = myProfile.data.data
   const newData = {
     score: payload,
@@ -46,7 +49,8 @@ export const setScoreFromLocalStorage = (payload) => async (dispatch) => {
   await axios
     .put(`https://impostorteam-app.herokuapp.com/api/users/score/${newData.id}`, newData)
     .then((res) => {
-      localStorage.setItem('data', JSON.stringify(res))
+      // localStorage.setItem('data', JSON.stringify(res))
+      Cookies.set('data', JSON.stringify(res))
       dispatch({
         type: SET_SCORE_FROM_LOCALSTORAGE,
         payload: res.data.data.score
@@ -75,3 +79,21 @@ export const playedGame1 = () => {
     payload: true
   };
 };
+
+export const clearStateGame = () => {
+  return {
+    type: CLEAR_STATE_GAME,
+    payload: {
+      userFinger: "",
+      computerFinger: "",
+      result: "",
+      score: 0,
+      played1: false,
+      played2: false,
+      played3: false,
+      played4: false,
+      played5: false,
+      played6: false,
+    }
+  }
+}

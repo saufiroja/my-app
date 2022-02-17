@@ -24,9 +24,9 @@ const List = (props) => {
 
   const handlePlayGame = () => {
     router.push('/game')
-    setTimeout(() => {
-      playedGame1()
-    }, 10000);
+    // setTimeout(() => {
+      // playedGame1()
+    // }, 10000);
   }
   return (
     <main>
@@ -60,14 +60,15 @@ const List = (props) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button
+                {/* <Button
                   // href='/game'
                   variant='outlined'
                   size='small'
                   onClick={handlePlayGame}
                 >
                   Play
-                </Button>
+                </Button> */}
+                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handlePlayGame}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -94,9 +95,10 @@ const List = (props) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small' onClick={handleOnClick}>
+                {/* <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
-                </Button>
+                </Button> */}
+                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -123,9 +125,10 @@ const List = (props) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small' onClick={handleOnClick}>
+                {/* <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
-                </Button>
+                </Button> */}
+                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -152,9 +155,10 @@ const List = (props) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small' onClick={handleOnClick}>
+                {/* <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
-                </Button>
+                </Button> */}
+                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -181,9 +185,10 @@ const List = (props) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small' onClick={handleOnClick}>
+                {/* <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
-                </Button>
+                </Button> */}
+                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -210,9 +215,10 @@ const List = (props) => {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant='outlined' size='small' onClick={handleOnClick}>
+                {/* <Button variant='outlined' size='small' onClick={handleOnClick}>
                   Play
-                </Button>
+                </Button> */}
+                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>

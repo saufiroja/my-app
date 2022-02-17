@@ -4,6 +4,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import axios from "axios";
+import Cookies from 'js-cookie'
 import AssetKuning from '/components/Assets/AssetKuning';
 import AssetUngu from '/components/Assets/AssetUngu';
 import AssetGame from '/components/Assets/AssetGame';
@@ -37,7 +38,8 @@ export default function Profile() {
         axios.get(`https://impostorteam-app.herokuapp.com/api/user/${username}`)
         .then((res) => {
             console.log("res detail:", res.data);
-            const myProfile = JSON.parse(localStorage.getItem('data'))
+            // const myProfile = JSON.parse(localStorage.getItem('data'))
+            const myProfile = JSON.parse(Cookies.get('data'))
             const id = user.id
             if(myProfile.data.data.id === id){
                 setMyProfile(true)
@@ -55,7 +57,8 @@ export default function Profile() {
     }
 
     const handleMyProfile = () => {
-        const myProfile = JSON.parse(localStorage.getItem('data'))
+        // const myProfile = JSON.parse(localStorage.getItem('data'))
+        const myProfile = JSON.parse(Cookies.get('data'))
         if(myProfile) {
             console.log('myProfile:', myProfile);
             setUsername(myProfile.data.data.username)
