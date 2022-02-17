@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { updateProfile } from '../redux/actions/users';
 import Link from 'next/link';
@@ -19,6 +19,13 @@ const EditProfile = (props) => {
   const [bio, setBio] = useState(data.bio);
 
   const router = useRouter()
+
+  useEffect(() => {
+    const token = Cookies.get('token')
+    if (!token) {
+        return router.push('/')
+    }
+}, [router])
 
   const onInputUsername = (e) => {
     setUsername(e.target.value)
