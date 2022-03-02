@@ -1,5 +1,6 @@
 import {
   CALCULATE_RESULT,
+  CLEAR_STATE_GAME,
   DECREMENT_SCORE,
   INCREMENT_SCORE,
   PLAYED_GAME_1,
@@ -108,28 +109,43 @@ export const gameReducer = (state = gameState, action) => {
       }
 
     case PLAYED_GAME_3:
-    return{
-      ...state,
-      played3: action.payload
-    }
+      return{
+        ...state,
+        played3: action.payload
+      }
 
     case PLAYED_GAME_4:
-    return{
-      ...state,
-      played4: action.payload
-    }
+      return{
+        ...state,
+        played4: action.payload
+      }
 
     case PLAYED_GAME_5:
-    return{
-      ...state,
-      played5: action.payload
-    }
+      return{
+        ...state,
+        played5: action.payload
+      }
 
     case PLAYED_GAME_6:
-    return{
-      ...state,
-      played6: action.payload
-    }
+      return{
+        ...state,
+        played6: action.payload
+      }
+
+    case CLEAR_STATE_GAME:
+      return{
+        ...state,
+        userFinger: action.payload.userFinger,
+        computerFinger: action.payload.computerFinger,
+        result: action.payload.result,
+        score: action.payload.score,
+        played1: action.payload.played1,
+        played2: action.payload.played2,
+        played3: action.payload.played3,
+        played4: action.payload.played4,
+        played5: action.payload.played5,
+        played6: action.payload.played6,
+      }
 
     default:
       return state;
