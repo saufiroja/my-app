@@ -9,6 +9,7 @@ import AssetUngu from '../components/Assets/AssetUngu';
 import AssetGame from '../components/Assets/AssetGame';
 import AssetBatu from '../components/Assets/AssetBatu';
 import Cookies from 'js-cookie';
+import Image from 'next/image';
 
 const EditProfile = (props) => {
   const { user, updateProfile, isLoading } = props;
@@ -17,6 +18,7 @@ const EditProfile = (props) => {
   const [username, setUsername] = useState(data.username);
   const [name, setName] = useState(data.name);
   const [bio, setBio] = useState(data.bio);
+  const [imageSelected, setImageSelected] = useState("")
 
   const router = useRouter()
 
@@ -25,13 +27,26 @@ const EditProfile = (props) => {
     if (!token) {
         return router.push('/')
     }
-}, [router])
+  }, [router])
+
+  const handleOnChange = (changeEvent) => {
+    let fileReader = new FileReader();
+    fileReader.onload = function(onLoadEvent){
+      setImageSelected(onLoadEvent.target.result)
+    }
+
+    fileReader.readAsDataURL(changeEvent.target.files[0])
+  }
 
   const onInputUsername = (e) => {
     setUsername(e.target.value)
   }
 
-  const handleUpdate = () => {
+  const handleUpdate = (e) => {
+    e.preventDefault()
+
+    const formData = new FormData()
+    console.log("formData:", formData);
     const data = {
       username,
       name,
@@ -54,6 +69,7 @@ const EditProfile = (props) => {
       <AssetBatu />
 
       <div className='container mx-auto px-[6%]'>
+        {/* <div className='h-screen w-5/12 pt-[80px] xl:ml-4 lg:ml-4 md:ml-20 sm:ml-[30%]'> */}
         <div className='h-screen w-5/12 pt-[80px] xl:ml-4 lg:ml-4 md:ml-20 sm:ml-[30%]'>
           <p className='text-[38px] text-center font-semibold text-slate-700'>
             Edit Profile
@@ -87,6 +103,17 @@ const EditProfile = (props) => {
             value={bio}
             onChange={(e) => setBio(e.target.value)}
           />
+          
+          <p className='text-left mt-4'>Foto Profile</p>
+          <input type="file" name="file" className='focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-[40px] py-3 pl-4 ring-1 ring-slate-200 shadow-sm mt-2' />
+          {/* <button
+            type='button'
+            className='bg-primary text-white rounded-large mt-4 py-3 w-full'
+            onClick={handleUpdate}
+            // loading={isLoading ? 1 : 0}
+          >
+            Update
+          </button> */}
           {isLoading ? (
             <button className='bg-gray-300 text-gray-600 rounded-large mt-4 py-3 w-full hover:cursor-not-allowed'>
               Loading ...
@@ -108,6 +135,7 @@ const EditProfile = (props) => {
             </Link>
           </div>
         </div>
+        {/* </div> */}
       </div>
     </div>
   );
