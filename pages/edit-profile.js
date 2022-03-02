@@ -13,40 +13,17 @@ import Image from 'next/image';
 
 const EditProfile = (props) => {
   const { user, updateProfile, isLoading } = props;
-<<<<<<< HEAD
-  const myProfile = JSON.parse(Cookies.get('data'))
-  const data  = myProfile.data.data
-  const [username, setUsername] = useState(data.username);
-  const [name, setName] = useState(data.name);
-  const [bio, setBio] = useState(data.bio);
-  const [imageSelected, setImageSelected] = useState("")
-=======
+
   // const myProfile = JSON.parse(Cookies.get('data'))
   // const data  = myProfile.data.data
   const [username, setUsername] = useState(null);
   const [name, setName] = useState(null);
   const [bio, setBio] = useState(null);
->>>>>>> 7c394646665b8fecd230b15612371648056d6b0a
+  const [imageSelected, setImageSelected] = useState("")
 
   const router = useRouter()
 
   useEffect(() => {
-<<<<<<< HEAD
-    const token = Cookies.get('token')
-    if (!token) {
-        return router.push('/')
-    }
-  }, [router])
-
-  const handleOnChange = (changeEvent) => {
-    let fileReader = new FileReader();
-    fileReader.onload = function(onLoadEvent){
-      setImageSelected(onLoadEvent.target.result)
-    }
-
-    fileReader.readAsDataURL(changeEvent.target.files[0])
-  }
-=======
     const myProfile = JSON.parse(Cookies.get('data'))
     const data = myProfile.data.data;
 
@@ -61,7 +38,6 @@ const EditProfile = (props) => {
 //         return router.push('/')
 //     }
 // }, [router])
->>>>>>> 7c394646665b8fecd230b15612371648056d6b0a
 
   const onInputUsername = (e) => {
     setUsername(e.target.value)
