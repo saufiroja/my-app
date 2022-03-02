@@ -35,7 +35,7 @@ export default function MyImages(){
                         <div>
                             <Image src={imageSelected} alt="image" width="500" height="500" />
                             <div className="flex justify-center">
-                                <button className="bg-primary w-max rounded-lg p-2 text-white my-3">Upload Image</button>
+                                <button className="bg-primary border border-primary w-max rounded-lg p-2 text-white my-3 hover:bg-white hover:text-primary">Upload Image</button>
                             </div>
                         </div>
                     )
