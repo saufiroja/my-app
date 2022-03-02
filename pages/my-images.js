@@ -14,7 +14,7 @@ export default function MyImages(){
         fileReader.readAsDataURL(changeEvent.target.files[0])
     }
 
-    const uploadImage = () => {
+    const uploadImage = (e) => {
         e.preventDefault()
 
         const formData = new FormData()
@@ -28,14 +28,14 @@ export default function MyImages(){
 
     return (
         <div className="flex justify-center items-center h-screen">
-            <form onChange={handleOnChange} className="flex flex-col" >
+            <form onChange={handleOnChange} onSubmit={uploadImage} className="flex flex-col" >
                 <input type="file" name="file" className="my-3 border border-black p-3 rounded-md" />
                 {
                     imageSelected && (
                         <div>
                             <Image src={imageSelected} alt="image" width="500" height="500" />
                             <div className="flex justify-center">
-                                <button className="bg-primary w-max rounded-lg p-2 text-white my-3"  onClick={uploadImage}>Upload Image</button>
+                                <button className="bg-primary w-max rounded-lg p-2 text-white my-3">Upload Image</button>
                             </div>
                         </div>
                     )
