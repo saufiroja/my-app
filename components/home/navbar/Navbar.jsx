@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react'
 import Cookies from 'js-cookie';
 
 import {
@@ -18,15 +19,20 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { clearState } from '../../../redux/actions/users';
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [fotoProfile, setFotoProfile] = React.useState(null);
 
   const router = useRouter();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log("user:", props.user);
+  }, [props.user])
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -154,7 +160,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar src='./images/kelinci.jpeg' />
+                <Avatar src={props.user.data.avatar} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -198,4 +204,14 @@ const Navbar = () => {
     </AppBar>
   );
 };
-export default Navbar;
+// export default Navbar;
+
+const mapStateToProps = (state) => ({
+  user: state.users.user
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//   updateProfile: (data) => dispatch(updateProfile(data)),
+// });
+
+export default connect(mapStateToProps)(Navbar);
