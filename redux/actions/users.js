@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   CLEAR_STATE,
   ERROR_AUTH,
@@ -6,9 +7,8 @@ import {
   LOGIN_USER,
   REGISTER_USER,
   SHOW_MODAL,
-  UPDATE_PROFILE
-} from "../constants/users";
-import axios from "axios";
+  UPDATE_PROFILE,
+} from '../constants/users';
 
 export const registerUser = (payload) => async (dispatch) => {
   // loading
@@ -19,13 +19,13 @@ export const registerUser = (payload) => async (dispatch) => {
       data: false,
       error: false,
       // redirect: false
-    }
-  })
+    },
+  });
 
   // post data
-  await axios.post(`https://impostorteam-app.herokuapp.com/api/register`, payload)
+  await axios.post('https://impostorteam-app.herokuapp.com/api/register', payload)
     .then((res) => {
-      console.log("success: ", res);
+      console.log('success: ', res);
       dispatch({
         type: REGISTER_USER,
         payload: {
@@ -33,11 +33,11 @@ export const registerUser = (payload) => async (dispatch) => {
           data: res.data.data,
           error: false,
           // redirect: true
-        }
-      })
+        },
+      });
     })
     .catch((err) => {
-      console.log("error: ", err.response.data);
+      console.log('error: ', err.response.data);
       dispatch({
         type: REGISTER_USER,
         payload: {
@@ -45,10 +45,10 @@ export const registerUser = (payload) => async (dispatch) => {
           data: false,
           error: err.response.data,
           // redirect: false
-        }
-      })
-    })
-}
+        },
+      });
+    });
+};
 
 export const loginUser = (payload) => async (dispatch) => {
   // loading
@@ -58,21 +58,21 @@ export const loginUser = (payload) => async (dispatch) => {
       loading: true,
       data: false,
       error: false,
-      redirect: false
-    }
-  })
+      redirect: false,
+    },
+  });
 
   // post data
-  await axios.post(`https://impostorteam-app.herokuapp.com/api/login`, payload)
+  await axios.post('https://impostorteam-app.herokuapp.com/api/login', payload)
     .then((res) => {
-      console.log("res login: ", res);
-      const token = res.data.token;
+      console.log('res login: ', res);
+      const { token } = res.data;
       console.log('token:', token);
-      sessionStorage.setItem("token", token);
+      sessionStorage.setItem('token', token);
       // sessionStorage.setItem("username", res.data.data.data.username);
-      const userToken = sessionStorage.getItem("token");
+      const userToken = sessionStorage.getItem('token');
       if (userToken) {
-        localStorage.setItem("data", JSON.stringify(res.data));
+        localStorage.setItem('data', JSON.stringify(res.data));
       }
       dispatch({
         type: LOGIN_USER,
@@ -80,9 +80,9 @@ export const loginUser = (payload) => async (dispatch) => {
           loading: false,
           data: res.data.data,
           error: false,
-          redirect: true
-        }
-      })
+          redirect: true,
+        },
+      });
     })
     .catch((err) => {
       console.log('error: ', err.response.data.message);
@@ -92,11 +92,11 @@ export const loginUser = (payload) => async (dispatch) => {
           loading: false,
           data: false,
           error: err.response.data.message,
-          redirect: false
-        }
-      })
-    })
-}
+          redirect: false,
+        },
+      });
+    });
+};
 
 export const updateProfile = (payload) => (dispatch) => {
   // loading
@@ -106,38 +106,38 @@ export const updateProfile = (payload) => (dispatch) => {
       loading: true,
       data: false,
       error: false,
-      redirect: false
-    }
-  })
+      redirect: false,
+    },
+  });
 
   axios
     .put(`https://impostorteam-app.herokuapp.com/api/users/${payload.id}`, payload)
     .then((res) => {
       console.log('res update biodata:', res);
-      localStorage.setItem('data', JSON.stringify(res))
+      localStorage.setItem('data', JSON.stringify(res));
       dispatch({
         type: UPDATE_PROFILE,
         payload: {
           loading: false,
           data: res.data,
           error: false,
-          redirect: false
-        }
-      })
+          redirect: false,
+        },
+      });
     })
     .catch((err) => {
-      console.log("error: ", err);
+      console.log('error: ', err);
       dispatch({
         type: UPDATE_PROFILE,
         payload: {
           loading: false,
           data: false,
           error: err.response,
-          redirect: false
-        }
-      })
+          redirect: false,
+        },
+      });
     });
-}
+};
 
 export const forgotPassword = (payload) => (dispatch) => {
   // loading
@@ -147,12 +147,12 @@ export const forgotPassword = (payload) => (dispatch) => {
       loading: true,
       data: false,
       error: false,
-      redirect: false
-    }
-  })
+      redirect: false,
+    },
+  });
 
   axios
-    .put(`https://impostorteam-app.herokuapp.com/api/forgot-password`, { email: payload })
+    .put('https://impostorteam-app.herokuapp.com/api/forgot-password', { email: payload })
     .then((res) => {
       console.log('res forgot-password:', res);
       dispatch({
@@ -161,44 +161,38 @@ export const forgotPassword = (payload) => (dispatch) => {
           loading: false,
           data: res.status,
           error: false,
-          redirect: false
-        }
-      })
+          redirect: false,
+        },
+      });
     })
     .catch((err) => {
-      console.log("error: ", err);
+      console.log('error: ', err);
       dispatch({
         type: FORGOT_PASSWORD,
         payload: {
           loading: false,
           data: false,
           error: err,
-          redirect: false
-        }
-      })
+          redirect: false,
+        },
+      });
     });
-}
+};
 
-export const showModal = () => {
-  return {
-    type: SHOW_MODAL,
-    payload: true
-  }
-}
+export const showModal = () => ({
+  type: SHOW_MODAL,
+  payload: true,
+});
 
-export const hiddenModal = () => {
-  return {
-    type: HIDDEN_MODAL,
-    payload: false
-  }
-}
+export const hiddenModal = () => ({
+  type: HIDDEN_MODAL,
+  payload: false,
+});
 
-export const clearState = () => {
-  return {
-    type: CLEAR_STATE,
-    payload: {
-      user: null,
-      redirect: false
-    }
-  }
-}
+export const clearState = () => ({
+  type: CLEAR_STATE,
+  payload: {
+    user: null,
+    redirect: false,
+  },
+});

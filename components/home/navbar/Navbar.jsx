@@ -20,7 +20,7 @@ import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
 import { clearState } from '../../../redux/actions/users';
 
-const Navbar = () => {
+function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -55,32 +55,32 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position='static'>
-      <Container maxWidth='xl'>
+    <AppBar position="static">
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant='h6'
+            variant="h6"
             noWrap
-            component='div'
+            component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-            className='text-body'
+            className="text-body"
           >
             Impostor
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size='large'
-              aria-label='account of current user'
-              aria-controls='menu-appbar'
-              aria-haspopup='true'
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color='inherit'
+              color="inherit"
             >
               <MenuIcon />
             </IconButton>
             <Menu
-              id='menu-appbar'
+              id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
@@ -98,30 +98,30 @@ const Navbar = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography className='text-body' textAlign='center'>
-                  <Link href='/' color='inherit'>
+                <Typography className="text-body" textAlign="center">
+                  <Link href="/" color="inherit">
                     Home
                   </Link>
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography className='text-body' textAlign='center'>
+                <Typography className="text-body" textAlign="center">
                   About
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography className='text-body' textAlign='center'>
+                <Typography className="text-body" textAlign="center">
                   Leaderboard
                 </Typography>
               </MenuItem>
             </Menu>
           </Box>
           <Typography
-            variant='h6'
+            variant="h6"
             noWrap
-            component='div'
+            component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-            className='text-body'
+            className="text-body"
           >
             Impostor
           </Typography>
@@ -129,36 +129,36 @@ const Navbar = () => {
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
-              className='text-body'
-              href='/'
+              className="text-body"
+              href="/"
             >
               Home
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
-              className='text-body'
+              className="text-body"
             >
               About
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
-              className='text-body'
+              className="text-body"
             >
               Leaderboard
             </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
+            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar src='./images/kelinci.jpeg' />
+                <Avatar src="./images/kelinci.jpeg" />
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
-              id='menu-appbar'
+              id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
@@ -174,8 +174,8 @@ const Navbar = () => {
             >
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography
-                  textAlign='center'
-                  className='text-body'
+                  textAlign="center"
+                  className="text-body"
                   onClick={handleProfile}
                 >
                   Profile
@@ -183,8 +183,8 @@ const Navbar = () => {
               </MenuItem>
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography
-                  textAlign='center'
-                  className='text-body'
+                  textAlign="center"
+                  className="text-body"
                   onClick={handleLogout}
                 >
                   Logout
@@ -196,5 +196,5 @@ const Navbar = () => {
       </Container>
     </AppBar>
   );
-};
+}
 export default Navbar;

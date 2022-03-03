@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import React from 'react';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function About() {
   return (
