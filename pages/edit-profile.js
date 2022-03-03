@@ -19,7 +19,7 @@ const EditProfile = (props) => {
   const [username, setUsername] = useState(null);
   const [name, setName] = useState(null);
   const [bio, setBio] = useState(null);
-  const [imageSelected, setImageSelected] = useState("")
+  const [avatar, setAvatar] = useState(null)
 
   const router = useRouter()
 
@@ -30,6 +30,7 @@ const EditProfile = (props) => {
     setUsername(data.username);
     setName(data.name);
     setBio(data.bio);
+    setAvatar(data.avatar)
   }, []);
 
 //   useEffect(() => {
@@ -38,6 +39,10 @@ const EditProfile = (props) => {
 //         return router.push('/')
 //     }
 // }, [router])
+
+  const handleInputImage = (e) => {
+    console.log("e:", e);
+  }
 
   const onInputUsername = (e) => {
     setUsername(e.target.value)
@@ -52,6 +57,7 @@ const EditProfile = (props) => {
       username,
       name,
       bio,
+      avatar,
       id: user.data.id,
     };
 
@@ -107,7 +113,7 @@ const EditProfile = (props) => {
           />
           
           <p className='text-left mt-4'>Foto Profile</p>
-          <input type="file" name="file" className='focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-[40px] py-3 pl-4 ring-1 ring-slate-200 shadow-sm mt-2' />
+          <input type="file" name="file" className='focus:ring-2 focus:ring-blue-500 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-[40px] py-3 pl-4 ring-1 ring-slate-200 shadow-sm mt-2' onChange={handleInputImage} />
           {/* <button
             type='button'
             className='bg-primary text-white rounded-large mt-4 py-3 w-full'

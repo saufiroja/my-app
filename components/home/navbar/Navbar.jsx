@@ -26,13 +26,16 @@ import { clearStateGame } from '../../../redux/actions/game';
 const Navbar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  const [fotoProfile, setFotoProfile] = React.useState(null);
+  const [fotoProfile, setFotoProfile] = React.useState("");
 
   const router = useRouter();
   const dispatch = useDispatch();
 
   useEffect(() => {
     console.log("user:", props.user);
+    if (props.user){
+      setFotoProfile(props.user.data.avatar)
+    }
   }, [props.user])
 
   const handleOpenNavMenu = (event) => {
@@ -55,6 +58,7 @@ const Navbar = (props) => {
   };
 
   const handleLogout = () => {
+    setFotoProfile("")
     Cookies.remove('data')
     Cookies.remove('score')
     Cookies.remove('token')
@@ -162,7 +166,7 @@ const Navbar = (props) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar src={props.user.data.avatar} />
+                <Avatar src={fotoProfile} />
               </IconButton>
             </Tooltip>
             <Menu
