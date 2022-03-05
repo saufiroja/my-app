@@ -34,7 +34,7 @@ const Navbar = (props) => {
   useEffect(() => {
     console.log("user:", props.user);
     if (props.user){
-      setFotoProfile(props.user.data.avatar)
+      setFotoProfile(props.user.avatar)
     }
   }, [props.user])
 

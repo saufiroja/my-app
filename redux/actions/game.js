@@ -46,7 +46,7 @@ export const setScoreFromLocalStorage = (payload) => async (dispatch) => {
     id: data.id
   };
   await axios
-    .put(`https://impostorteam-app.herokuapp.com/api/users/score/${newData.id}`, newData)
+    .put(`http://localhost:7000/api/users/score/${newData.id}`, newData)
     .then((res) => {
       Cookies.set('data', JSON.stringify(res))
       dispatch({
