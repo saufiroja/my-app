@@ -9,31 +9,23 @@ import {
   Button,
 } from '@mui/material';
 import { connect } from 'react-redux';
-import { useRouter } from 'next/router';
-import Modal from '../../Modal';
-import { showModal } from '../../../redux/actions/users';
 import { playedGame1 } from '../../../redux/actions/game';
 import { LastPlayed } from '../LastPlayed';
 
 function List(props) {
   const router = useRouter();
   const {
-    showModal, playedGame1, modal, played1, played2, played3, played4, played5, played6,
+    played1, played2, played3, played4, played5, played6,
   } = props;
   const handleOnClick = () => {
-    showModal();
+    router.push('/top-score');
   };
 
   const handlePlayGame = () => {
     router.push('/game');
-    setTimeout(() => {
-      playedGame1();
-    }, 10000);
   };
   return (
     <main>
-      {modal && <Modal />}
-
       <Container maxWidth="md" className="pt-10">
         <Typography variant="h4" align="center" pb={3} className="font-body">
           List Game
@@ -62,14 +54,7 @@ function List(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button
-                  // href='/game'
-                  variant="outlined"
-                  size="small"
-                  onClick={handlePlayGame}
-                >
-                  Play
-                </Button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handlePlayGame}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -96,9 +81,7 @@ function List(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant="outlined" size="small" onClick={handleOnClick}>
-                  Play
-                </Button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -125,9 +108,7 @@ function List(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant="outlined" size="small" onClick={handleOnClick}>
-                  Play
-                </Button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -154,9 +135,7 @@ function List(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant="outlined" size="small" onClick={handleOnClick}>
-                  Play
-                </Button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -183,9 +162,7 @@ function List(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant="outlined" size="small" onClick={handleOnClick}>
-                  Play
-                </Button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -212,9 +189,7 @@ function List(props) {
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button variant="outlined" size="small" onClick={handleOnClick}>
-                  Play
-                </Button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -225,7 +200,6 @@ function List(props) {
 }
 
 const mapStateToProps = (state) => ({
-  modal: state.users.modal,
   played1: state.game.played1,
   played2: state.game.played2,
   played3: state.game.played3,
@@ -235,7 +209,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  showModal: () => dispatch(showModal()),
   playedGame1: () => dispatch(playedGame1()),
 });
 

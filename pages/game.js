@@ -1,19 +1,17 @@
 import { ArrowBack } from '@mui/icons-material';
 import { useRouter } from 'next/router';
-import Header from '../components/game/Header';
-import GameBoard from '../components/game/GameBoard';
-// import { useDispatch } from 'react-redux';
-// import { playedGame1 } from '../redux/actions/game';
+import { useDispatch } from 'react-redux';
+import { playedGame1 } from '../redux/actions/game';
 
 function Game() {
   const router = useRouter();
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleOnClick = () => {
     router.push('/home');
-    // dispatch(
-    //   playedGame1()
-    // )
+    dispatch(
+      playedGame1(),
+    );
   };
 
   return (

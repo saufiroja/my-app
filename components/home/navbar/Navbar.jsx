@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { useEffect } from 'react';
+import Cookies from 'js-cookie';
 
 import {
   AppBar,
@@ -17,15 +19,23 @@ import {
 
 import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { clearState } from '../../../redux/actions/users';
+import { clearStateGame } from '../../../redux/actions/game';
 
-function Navbar() {
+function Navbar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [fotoProfile, setFotoProfile] = React.useState('');
 
   const router = useRouter();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (props.user) {
+      setFotoProfile(props.user.avatar);
+    }
+  }, [props.user]);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -47,10 +57,12 @@ function Navbar() {
   };
 
   const handleLogout = () => {
-    sessionStorage.clear();
-    localStorage.removeItem('data');
-    localStorage.removeItem('score');
+    setFotoProfile('');
+    Cookies.remove('data');
+    Cookies.remove('score');
+    Cookies.remove('token');
     dispatch(clearState());
+    dispatch(clearStateGame());
     router.push('/');
   };
 
@@ -153,7 +165,7 @@ function Navbar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar src="./images/kelinci.jpeg" />
+                <Avatar src={fotoProfile} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -197,4 +209,14 @@ function Navbar() {
     </AppBar>
   );
 }
-export default Navbar;
+// export default Navbar;
+
+const mapStateToProps = (state) => ({
+  user: state.users.user,
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//   updateProfile: (data) => dispatch(updateProfile(data)),
+// });
+
+export default connect(mapStateToProps)(Navbar);

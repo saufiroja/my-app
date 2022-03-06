@@ -10,7 +10,6 @@ function ScoreBoard() {
 
   useEffect(() => {
     dispatch(setScoreFromLocalStorage(score));
-    console.log('scoreboard: ', score);
   }, [dispatch, score]);
 
   return (
