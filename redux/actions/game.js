@@ -2,6 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import {
   CALCULATE_RESULT,
+  CLEAR_STATE_GAME,
   DECREMENT_SCORE,
   INCREMENT_SCORE,
   PLAYED_GAME_1,
@@ -45,7 +46,7 @@ export const setScoreFromLocalStorage = (payload) => async (dispatch) => {
     id: data.id
   };
   await axios
-    .put(`https://impostorteam-app.herokuapp.com/api/users/score/${newData.id}`, newData)
+    .put(`http://localhost:7000/api/users/score/${newData.id}`, newData)
     .then((res) => {
       Cookies.set('data', JSON.stringify(res))
       dispatch({
@@ -76,3 +77,21 @@ export const playedGame1 = () => {
     payload: true
   };
 };
+
+export const clearStateGame = () => {
+  return {
+    type: CLEAR_STATE_GAME,
+    payload: {
+      userFinger: "",
+      computerFinger: "",
+      result: "",
+      score: 0,
+      played1: false,
+      played2: false,
+      played3: false,
+      played4: false,
+      played5: false,
+      played6: false,
+    }
+  }
+}
