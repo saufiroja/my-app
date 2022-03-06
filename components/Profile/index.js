@@ -29,7 +29,6 @@ export default function Profile() {
         axios.get(`http://localhost:7000/api/users`)
         .then((result) => {
             setUsers(result.data.user)
-            console.log('result:', result.data);
         })
     }, [router])
 
@@ -37,9 +36,7 @@ export default function Profile() {
         const username = user.username
         axios.get(`http://localhost:7000/api/user/${username}`)
         .then((res) => {
-            console.log("res detail:", res.data);
             const myProfile = JSON.parse(Cookies.get('data'))
-            console.log("myProfile:", myProfile);
             const id = user.id
             setUsername(res.data.data.username)
             setName(res.data.data.name)
@@ -59,7 +56,6 @@ export default function Profile() {
     const handleMyProfile = () => {
         const myProfile = JSON.parse(Cookies.get('data'))
         if(myProfile) {
-            console.log('myProfile:', myProfile);
             setUsername(myProfile.user.username)
             setName(myProfile.user.name)
             setBio(myProfile.user.bio)

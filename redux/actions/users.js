@@ -2,10 +2,8 @@ import {
   CLEAR_STATE,
   ERROR_AUTH,
   FORGOT_PASSWORD,
-  HIDDEN_MODAL,
   LOGIN_USER,
   REGISTER_USER,
-  SHOW_MODAL,
   UPDATE_PROFILE
 } from "../constants/users";
 import axios from "axios";
@@ -177,20 +175,6 @@ export const forgotPassword = (payload) => (dispatch) => {
         }
       })
     });
-}
-
-export const showModal = () => {
-  return {
-    type: SHOW_MODAL,
-    payload: true
-  }
-}
-
-export const hiddenModal = () => {
-  return {
-    type: HIDDEN_MODAL,
-    payload: false
-  }
 }
 
 export const clearState = () => {

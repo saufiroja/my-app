@@ -8,18 +8,16 @@ import {
   Typography,
   Button,
 } from '@mui/material';
-import Modal from '../../Modal';
 import { connect } from 'react-redux';
-import { showModal } from '../../../redux/actions/users';
 import { playedGame1 } from '../../../redux/actions/game';
 import { useRouter } from 'next/router';
 import { LastPlayed } from '../LastPlayed';
 
 const List = (props) => {
   const router = useRouter()
-  const { showModal, playedGame1, modal, played1, played2, played3, played4, played5, played6 } = props;
+  const { played1, played2, played3, played4, played5, played6 } = props;
   const handleOnClick = () => {
-    showModal()
+    router.push('/top-score')
   };
 
   const handlePlayGame = () => {
@@ -27,8 +25,6 @@ const List = (props) => {
   }
   return (
     <main>
-      {modal && <Modal />}
-
       <Container maxWidth='md' className='pt-10'>
         <Typography variant='h4' align='center' pb={3} className='font-body'>
           List Game
@@ -203,7 +199,6 @@ const List = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  modal: state.users.modal,
   played1: state.game.played1,
   played2: state.game.played2,
   played3: state.game.played3,
@@ -213,7 +208,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  showModal: () => dispatch(showModal()),
   playedGame1: () => dispatch(playedGame1())
 })
 
