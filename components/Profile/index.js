@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
-import Image from "next/image";
+import React, { useEffect, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import axios from "axios";
 import Cookies from 'js-cookie';
@@ -9,17 +9,17 @@ import AssetKuning from '/components/Assets/AssetKuning';
 import AssetUngu from '/components/Assets/AssetUngu';
 import AssetGame from '/components/Assets/AssetGame';
 import AssetBatu from '/components/Assets/AssetBatu';
-import CardUser from "../CardUsers";
+import CardUser from '../CardUsers';
 
 export default function Profile() {
-    const [users, setUsers] = useState('')
-    const [username, setUsername] = useState('-')
-    const [name, setName] = useState('-')
-    const [bio, setBio] = useState('-')
-    const [userScore, setUserScore] = useState('-')
-    const [myProfile, setMyProfile] = useState(false)
+  const [users, setUsers] = useState('');
+  const [username, setUsername] = useState('-');
+  const [name, setName] = useState('-');
+  const [bio, setBio] = useState('-');
+  const [userScore, setUserScore] = useState('-');
+  const [myProfile, setMyProfile] = useState(false);
 
-    const router = useRouter()
+  const router = useRouter();
 
     useEffect(() => {
         const token = Cookies.get('token')
@@ -52,6 +52,12 @@ export default function Profile() {
             console.log(err);
         })
     }
+    axios.get('https://impostorteam-app.herokuapp.com/api/users')
+      .then((result) => {
+        setUsers(result.data.user);
+        console.log('result:', result.data);
+      });
+  }, [router]);
 
     const handleMyProfile = () => {
         const myProfile = JSON.parse(Cookies.get('data'))
@@ -62,15 +68,31 @@ export default function Profile() {
             setUserScore(myProfile.user.score)
             setMyProfile(true)
         }
-    }
+        setUsername(res.data.data.username);
+        setName(res.data.data.name);
+        setBio(res.data.data.bio);
+        setUserScore(res.data.data.score);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    const handleOnClick = () => {
-        router.push('/home')
+  const handleMyProfile = () => {
+    const myProfile = JSON.parse(localStorage.getItem('data'));
+    if (myProfile) {
+      console.log('myProfile:', myProfile);
+      setUsername(myProfile.data.data.username);
+      setName(myProfile.data.data.name);
+      setBio(myProfile.data.data.bio);
+      setUserScore(myProfile.data.data.score);
+      setMyProfile(true);
     }
+  };
 
-    const handleUpdate = () => {
-        router.push('/edit-profile')
-    }
+  const handleOnClick = () => {
+    router.push('/home');
+  };
 
     return (
         <div className='bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden'>
@@ -103,7 +125,7 @@ export default function Profile() {
                                     </div>
                                     {
                                         myProfile && (
-                                            <button className='bg-primary text-white h-12 rounded-large mt-4 hover:bg-blue-700 w-full' onClick={handleUpdate}>Update</button>
+                                        <button className="bg-primary text-white h-12 rounded-large mt-4 hover:bg-blue-700 w-full" onClick={handleUpdate}>Update</button>
                                         )
                                     }
                                 </div>
@@ -121,7 +143,21 @@ export default function Profile() {
                         />
                     </div>
                 </div>
+              </div>
             </div>
+          </div>
+
+          <div className="basis-1/3 ml-8">
+            <div className="flex w-full">
+              <input className="focus:ring-2 focus:ring-blue-500 focus:outline-none xl:mt-[126px] lg:mt-[110px] appearance-none text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-xl pl-4 ml-4 w-5/6 xl:py-4 lg:py-3 ring-1 ring-slate-200 shadow-sm" type="text" aria-label="Filter projects" placeholder="Search Username..." />
+            </div>
+            <CardUser
+              users={users}
+              handleDetailUser={handleDetailUser}
+            />
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }

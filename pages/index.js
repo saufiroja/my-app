@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/link-passhref */
 /* eslint-disable react/no-unescaped-entities */
-import React, { useState } from "react";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import About from "../components/About/About";
-import Button from "../components/Navbar/Button/Button";
-import Logo from "../components/Navbar/Logo/Logo";
-import Nav from "../components/Navbar/Nav/Nav";
-import ResponsiveVideo from "../components/ResponsiveVideo";
+import React, { useState } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import About from '../components/About/About';
+import Button from '../components/Navbar/Button/Button';
+import Logo from '../components/Navbar/Logo/Logo';
+import Nav from '../components/Navbar/Nav/Nav';
+import ResponsiveVideo from '../components/ResponsiveVideo';
 import Main from '../components/Main/Main';
 import ListGame from '../components/ListGame/ListGame';
 
@@ -30,13 +30,13 @@ export default function Home() {
               <Nav />
             </div>
             <div className="w-3/12 space-x-5 text-right">
-              <Link href="/login">
-                <a className="text-lg py-3 px-10 rounded-2.5xl inline-block cursor-pointer bg-white text-primary">
+              <Link href="/login" passHref>
+                <a href="replace" className="text-lg py-3 px-10 rounded-2.5xl inline-block cursor-pointer bg-white text-primary">
                   Login
                 </a>
               </Link>
-              <Link href="/register">
-                <a className="text-lg py-3 px-10 rounded-2.5xl inline-block cursor-pointer bg-white text-primary">
+              <Link href="/register" passHref>
+                <a href="replace" className="text-lg py-3 px-10 rounded-2.5xl inline-block cursor-pointer bg-white text-primary">
                   Register
                 </a>
               </Link>
@@ -44,7 +44,7 @@ export default function Home() {
           </div>
           <div className="w-5/12 pt-32">
             <h1 className="text-white text-8xl font-bold font-body pr-32">
-              let's show your talent for game
+              let&apos;s show your talent for game
             </h1>
             <div className="ml-20">
               <Button className="mt-14" variant="yellow">
@@ -119,7 +119,7 @@ export default function Home() {
       <ListGame />
       <About />
 
-       {/* Footer */}
+      {/* Footer */}
       <section className="py-20 font-body">
         <div className="container">
           <div className="flex xl:items-center lg:items-center">
@@ -137,9 +137,9 @@ export default function Home() {
               </div>
               <p className="mt-5 leading-relaxed">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+                industry. Lorem Ipsum has been the industry&apos;s standard
+                dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book.
               </p>
             </div>
             <div className="w-4/12 xl:px-16 lg:px-16 md:px-14 sm:px-7">
