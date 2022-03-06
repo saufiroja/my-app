@@ -1,8 +1,8 @@
 export default function Button({ className, variant, children }) {
-  const addClassName = className ? ` ${className}` : "";
+  const addClassName = className ? ` ${className}` : '';
   const variants = {
-    white: `bg-white text-primary`,
-    yellow: `bg-yellow-500`,
+    white: 'bg-white text-primary',
+    yellow: 'bg-yellow-500',
   };
   const pickedVariant = variants[variant];
   return (

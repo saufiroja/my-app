@@ -18,12 +18,11 @@ export default function Home() {
         <title>Impostor | Homepage</title>
         <meta name="description" content="Impostor Website dengan Next JS" />
       </Head>
-      {/* Section About */}
       <Main />
       <ListGame />
       <About />
 
-       {/* Footer */}
+      {/* Footer */}
       <section className="py-20 font-body">
         <div className="container">
           <div className="flex xl:items-center lg:items-center">
@@ -41,9 +40,9 @@ export default function Home() {
               </div>
               <p className="mt-5 leading-relaxed">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+                industry. Lorem Ipsum has been the industry&apos;s standard
+                dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book.
               </p>
             </div>
             <div className="w-4/12 xl:px-16 lg:px-16 md:px-14 sm:px-7">

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {
   CLEAR_STATE,
   ERROR_AUTH,
@@ -18,13 +19,13 @@ export const registerUser = (payload) => async (dispatch) => {
       data: false,
       error: false,
       // redirect: false
-    }
-  })
+    },
+  });
 
   // post data
   await axios.post(`http://localhost:7000/api/register`, payload)
     .then((res) => {
-      console.log("success: ", res);
+      console.log('success: ', res);
       dispatch({
         type: REGISTER_USER,
         payload: {
@@ -32,11 +33,11 @@ export const registerUser = (payload) => async (dispatch) => {
           data: res.data.data,
           error: false,
           // redirect: true
-        }
-      })
+        },
+      });
     })
     .catch((err) => {
-      console.log("error: ", err.response.data);
+      console.log('error: ', err.response.data);
       dispatch({
         type: REGISTER_USER,
         payload: {
@@ -44,10 +45,10 @@ export const registerUser = (payload) => async (dispatch) => {
           data: false,
           error: err.response.data,
           // redirect: false
-        }
-      })
-    })
-}
+        },
+      });
+    });
+};
 
 export const loginUser = (payload) => async (dispatch) => {
   // loading
@@ -57,9 +58,9 @@ export const loginUser = (payload) => async (dispatch) => {
       loading: true,
       data: false,
       error: false,
-      redirect: false
-    }
-  })
+      redirect: false,
+    },
+  });
 
   // post data
   await axios.post(`http://localhost:7000/api/login`, payload)
@@ -78,9 +79,9 @@ export const loginUser = (payload) => async (dispatch) => {
           loading: false,
           data: res.data.user,
           error: false,
-          redirect: true
-        }
-      })
+          redirect: true,
+        },
+      });
     })
     .catch((err) => {
       console.log('error: ', err.response.data.message);
@@ -90,11 +91,11 @@ export const loginUser = (payload) => async (dispatch) => {
           loading: false,
           data: false,
           error: err.response.data.message,
-          redirect: false
-        }
-      })
-    })
-}
+          redirect: false,
+        },
+      });
+    });
+};
 
 export const updateProfile = (payload) => (dispatch) => {
   // loading
@@ -104,9 +105,9 @@ export const updateProfile = (payload) => (dispatch) => {
       loading: true,
       data: false,
       error: false,
-      redirect: false
-    }
-  })
+      redirect: false,
+    },
+  });
 
   axios
     .put(`http://localhost:7000/api/users/${payload.id}`, payload)
@@ -119,23 +120,23 @@ export const updateProfile = (payload) => (dispatch) => {
           loading: false,
           data: res.data.user,
           error: false,
-          redirect: false
-        }
-      })
+          redirect: false,
+        },
+      });
     })
     .catch((err) => {
-      console.log("error: ", err);
+      console.log('error: ', err);
       dispatch({
         type: UPDATE_PROFILE,
         payload: {
           loading: false,
           data: false,
           error: err.response,
-          redirect: false
-        }
-      })
+          redirect: false,
+        },
+      });
     });
-}
+};
 
 export const forgotPassword = (payload) => (dispatch) => {
   // loading
@@ -145,9 +146,9 @@ export const forgotPassword = (payload) => (dispatch) => {
       loading: true,
       data: false,
       error: false,
-      redirect: false
-    }
-  })
+      redirect: false,
+    },
+  });
 
   axios
     .put(`http://localhost:7000/api/forgot-password`, { email: payload })
@@ -159,23 +160,23 @@ export const forgotPassword = (payload) => (dispatch) => {
           loading: false,
           data: res.status,
           error: false,
-          redirect: false
-        }
-      })
+          redirect: false,
+        },
+      });
     })
     .catch((err) => {
-      console.log("error: ", err);
+      console.log('error: ', err);
       dispatch({
         type: FORGOT_PASSWORD,
         payload: {
           loading: false,
           data: false,
           error: err,
-          redirect: false
-        }
-      })
+          redirect: false,
+        },
+      });
     });
-}
+};
 
 export const clearState = () => {
   return {
