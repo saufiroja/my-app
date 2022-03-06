@@ -39,18 +39,6 @@ export const usersReducer = (state = initialState, action) => {
         redirect: action.payload.redirect,
       };
 
-    case SHOW_MODAL:
-      return {
-        ...state,
-        modal: action.payload,
-      };
-
-    case HIDDEN_MODAL:
-      return {
-        ...state,
-        modal: action.payload,
-      };
-
     case CLEAR_STATE:
       return {
         ...state,
