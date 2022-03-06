@@ -10,7 +10,6 @@ export default function ResponsiveVideo(props) {
         width='100%'
         height='100%'
         controls={true}
-        onProgress={props.onProgress}
       />
     </div>
   )

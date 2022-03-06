@@ -9,17 +9,8 @@ import Button from "../components/Navbar/Button/Button";
 import Logo from "../components/Navbar/Logo/Logo";
 import Nav from "../components/Navbar/Nav/Nav";
 import ResponsiveVideo from "../components/ResponsiveVideo";
-import Video from "../components/Video";
 
 export default function Home() {
-  const [watchComplete, setWatchComplete] = useState(false);
-
-  const handleWatchComplete = ({ played }) => {
-    // console.log(played);
-    if (played >= 0.7 && !watchComplete) {
-      setWatchComplete(true);
-    }
-  };
   return (
     <>
       <Head>
@@ -117,11 +108,7 @@ export default function Home() {
         <div className="container">
           <ResponsiveVideo
             url="https://www.youtube.com/watch?v=M8rbVzVf_z0"
-            onProgress={handleWatchComplete}
           />
-          <div className={watchComplete ? 'marker marker--is--complete' : 'marker marker--not--complete'}>
-            Completed
-          </div>
         </div>
       </section>
 
