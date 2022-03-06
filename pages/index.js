@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/link-passhref */
 /* eslint-disable react/no-unescaped-entities */
+import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,8 +8,18 @@ import About from "../components/About/About";
 import Button from "../components/Navbar/Button/Button";
 import Logo from "../components/Navbar/Logo/Logo";
 import Nav from "../components/Navbar/Nav/Nav";
+import ResponsiveVideo from "../components/ResponsiveVideo";
+import Video from "../components/Video";
 
 export default function Home() {
+  const [watchComplete, setWatchComplete] = useState(false);
+
+  const handleWatchComplete = ({ played }) => {
+    // console.log(played);
+    if (played >= 0.7 && !watchComplete) {
+      setWatchComplete(true);
+    }
+  };
   return (
     <>
       <Head>
@@ -53,7 +64,7 @@ export default function Home() {
 
       {/* Section Game */}
       <section className="pt-20">
-        <div className="container mx-auto">
+        <div className="container mx-auto mb-20">
           <h2 className="text-8xl font-bold font-body text-center">
             List Game
           </h2>
@@ -97,6 +108,19 @@ export default function Home() {
                 </a>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Video Tutorial */}
+      <section>
+        <div className="container">
+          <ResponsiveVideo
+            url="https://www.youtube.com/watch?v=M8rbVzVf_z0"
+            onProgress={handleWatchComplete}
+          />
+          <div className={watchComplete ? 'marker marker--is--complete' : 'marker marker--not--complete'}>
+            Completed
           </div>
         </div>
       </section>
