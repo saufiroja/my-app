@@ -9,10 +9,12 @@ import Button from "../components/Navbar/Button/Button";
 import Logo from "../components/Navbar/Logo/Logo";
 import Nav from "../components/Navbar/Nav/Nav";
 import ResponsiveVideo from "../components/ResponsiveVideo";
+import Main from '../components/Main/Main';
+import ListGame from '../components/ListGame/ListGame';
 
 export default function Home() {
   return (
-    <>
+    <div className="overflow-hidden">
       <Head>
         <title>Impostor | Homepage</title>
         <meta name="description" content="Impostor Website dengan Next JS" />
@@ -113,9 +115,11 @@ export default function Home() {
       </section>
 
       {/* Section About */}
+      <Main />
+      <ListGame />
       <About />
 
-      {/* Footer */}
+       {/* Footer */}
       <section className="py-20 font-body">
         <div className="container">
           <div className="flex xl:items-center lg:items-center">
@@ -138,7 +142,7 @@ export default function Home() {
                 of type and scrambled it to make a type specimen book.
               </p>
             </div>
-            <div className="w-4/12 px-16">
+            <div className="w-4/12 xl:px-16 lg:px-16 md:px-14 sm:px-7">
               <h3 className="xl:text-3xl lg:text-2xl">CONTRIBUTOR</h3>
               <ul className="mt-5">
                 <li>
@@ -168,7 +172,7 @@ export default function Home() {
                 </li>
               </ul>
             </div>
-            <div className="xl:w-4/12 lg:w-4/12 md:w-[45%] px-16">
+            <div className="xl:w-4/12 lg:w-4/12 md:w-[45%] sm:w-[60%] xl:px-16 lg:px-16 md:px-14 sm:px-7">
               <h3 className="xl:text-3xl lg:text-2xl md:text-2xl sm:text-2xl">Newsletter</h3>
               <form className="mt-5">
                 <input
@@ -193,6 +197,7 @@ export default function Home() {
           <p>©2022 Impostor Team. All Rights Reserved</p>
         </div>
       </footer>
-    </>
+
+    </div>
   );
 }
