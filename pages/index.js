@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/link-passhref */
-/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -63,8 +61,8 @@ export default function Home() {
           </h2>
           <div className="flex w-9/12 mx-auto mt-16">
             <div className="w-4/12">
-              <Link href="/login">
-                <a>
+              <Link href="/login" passHref>
+                <a href="replace">
                   <Image
                     className="cursor-pointer"
                     src="/images/game1.png"
@@ -76,8 +74,8 @@ export default function Home() {
               </Link>
             </div>
             <div className="w-4/12">
-              <Link href="/login">
-                <a>
+              <Link href="/login" passHref>
+                <a href="replace">
                   <Image
                     className="cursor-pointer"
                     src="/images/game2.png"
@@ -89,8 +87,8 @@ export default function Home() {
               </Link>
             </div>
             <div className="w-4/12">
-              <Link href="/login">
-                <a>
+              <Link href="/login" passHref>
+                <a href="replace">
                   <Image
                     className="cursor-pointer"
                     src="/images/game3.png"
@@ -115,8 +113,8 @@ export default function Home() {
       </section>
 
       {/* Section About */}
-      <Main />
-      <ListGame />
+      {/* <Main />
+      <ListGame /> */}
       <About />
 
       {/* Footer */}
@@ -146,27 +144,27 @@ export default function Home() {
               <h3 className="xl:text-3xl lg:text-2xl">CONTRIBUTOR</h3>
               <ul className="mt-5">
                 <li>
-                  <a href="#" className="text-lg">
+                  <a href="/#" className="text-lg">
                     Bogiant
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-lg">
+                  <a href="/#" className="text-lg">
                     Fikri
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-lg">
+                  <a href="/#" className="text-lg">
                     Hasby
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-lg">
+                  <a href="/#" className="text-lg">
                     Oja
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-lg">
+                  <a href="/#" className="text-lg">
                     Ulfa
                   </a>
                 </li>
@@ -182,8 +180,8 @@ export default function Home() {
                   placeholder="Enter email address"
                 />
               </form>
-              <Link href="/#">
-                <a className="mt-3 rounded-full bg-primary text-white text-lg px-10 py-3 inline-block text-center">
+              <Link href="/#" passHref>
+                <a href="replace" className="mt-3 rounded-full bg-primary text-white text-lg px-10 py-3 inline-block text-center">
                   SUBSCRIBE
                 </a>
               </Link>

@@ -81,28 +81,28 @@ function Login(props) {
                 </div>
               )}
               <label htmlFor="email" className="mt-3">
+                <input
+                  type="email"
+                  placeholder="Email"
+                  className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
                 Email
               </label>
-              <input
-                type="email"
-                placeholder="Email"
-                className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
 
               <label htmlFor="password" className="mt-3">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
                 Password
               </label>
-              <input
-                type="password"
-                placeholder="Password"
-                className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
               {isLoading ? (
-                <button className="bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed">
+                <button type="button" className="bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed">
                   Loading ...
                 </button>
               ) : (
@@ -115,12 +115,11 @@ function Login(props) {
                   Login
                 </button>
               )}
-              {/* <Button onClick={handleRegister} title="Register" loading={props.isLoading ? 1 : 0} /> */}
             </form>
             <div className="flex gap-2 mt-3">
               <h3>Belum Punya Akun?</h3>
-              <Link href="/register">
-                <a className="text-blue-400 underline">Daftar di sini</a>
+              <Link href="/register" passHref>
+                <a href="replace" className="text-blue-400 underline">Daftar di sini</a>
               </Link>
             </div>
           </div>

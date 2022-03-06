@@ -32,6 +32,9 @@
     "rules": {
       "react/jsx-props-no-spreading": "off",
       "react/prop-types": "off",
+      "no-unused-vars": "off",
+      "no-shadow": "off",
+      "linebreak-style": "off",
       "no-console": "off",
       "default-case": "off",
       "default-param-last": "off",
