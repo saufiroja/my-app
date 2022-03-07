@@ -81,28 +81,28 @@ function Login(props) {
                 </div>
               )}
               <label htmlFor="email" className="mt-3">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
                 Email
               </label>
+              <input
+                type="email"
+                placeholder="Email"
+                className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
 
               <label htmlFor="password" className="mt-3">
-                <input
-                  type="password"
-                  placeholder="Password"
-                  className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
                 Password
               </label>
+              <input
+                type="password"
+                placeholder="Password"
+                className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
               {isLoading ? (
-                <button type="button" className="bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed">
+                <button className="bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed">
                   Loading ...
                 </button>
               ) : (

@@ -32,6 +32,7 @@
     "rules": {
       "react/jsx-props-no-spreading": "off",
       "react/prop-types": "off",
+      "react/button-has-type": "off",
       "no-unused-vars": "off",
       "no-shadow": "off",
       "linebreak-style": "off",
@@ -40,6 +41,7 @@
       "default-param-last": "off",
       "no-case-declarations": "off",
       "import/prefer-default-export": "off",
+      "jsx-a11y/label-has-associated-control": "off",
       "react/react-in-jsx-scope": "off",
       "react/jsx-filename-extension": [
         1,
