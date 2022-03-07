@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint ./pages ./components ./redux",
+    "lint:fix": "eslint --fix ./pages ./components ./redux",
     "export": "next export"
   },
   "dependencies": {
@@ -19,18 +20,27 @@
     "@svgr/webpack": "^6.2.1",
     "axios": "^0.25.0",
     "js-cookie": "^3.0.1",
+    "jspdf": "^2.5.1",
     "next": "^12.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-player": "^2.9.0",
     "react-redux": "^7.2.6",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^12.1.0",
     "autoprefixer": "^10.4.2",
-    "eslint": "8.8.0",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "12.0.10",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.2",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "postcss": "^8.4.6",
     "tailwindcss": "^3.0.18"
   }

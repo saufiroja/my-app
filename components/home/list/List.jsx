@@ -8,37 +8,34 @@ import {
   Typography,
   Button,
 } from '@mui/material';
-import Modal from '../../Modal';
 import { connect } from 'react-redux';
-import { showModal } from '../../../redux/actions/users';
 import { playedGame1 } from '../../../redux/actions/game';
-import { useRouter } from 'next/router';
 import { LastPlayed } from '../LastPlayed';
 
-const List = (props) => {
-  const router = useRouter()
-  const { showModal, playedGame1, modal, played1, played2, played3, played4, played5, played6 } = props;
+function List(props) {
+  const router = useRouter();
+  const {
+    played1, played2, played3, played4, played5, played6,
+  } = props;
   const handleOnClick = () => {
-    showModal()
+    router.push('/top-score');
   };
 
   const handlePlayGame = () => {
-    router.push('/game')
-  }
+    router.push('/game');
+  };
   return (
     <main>
-      {modal && <Modal />}
-
-      <Container maxWidth='md' className='pt-10'>
-        <Typography variant='h4' align='center' pb={3} className='font-body'>
+      <Container maxWidth="md" className="pt-10">
+        <Typography variant="h4" align="center" pb={3} className="font-body">
           List Game
         </Typography>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={6} md={4}>
-            <Card className='h-full flex flex-col'>
-              <div className='relative'>
+            <Card className="h-full flex flex-col">
+              <div className="relative">
                 <CardMedia
-                  image='./images/game1.png'
+                  image="./images/game1.png"
                   sx={{ paddingTop: '60%' }}
                 />
                 {
@@ -47,25 +44,25 @@ const List = (props) => {
                   )
                 }
               </div>
-              <CardContent className='flex-grow'>
-                <Typography variant='h5' className='font-body'>
+              <CardContent className="flex-grow">
+                <Typography variant="h5" className="font-body">
                   Rock Paper Scissor
                 </Typography>
-                <Typography className='font-body'>
+                <Typography className="font-body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Reiciendis, unde?
                 </Typography>
               </CardContent>
               <CardActions>
-                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handlePlayGame}>PLAY</button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handlePlayGame}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card className='h-full flex flex-col'>
-              <div className='relative'>
+            <Card className="h-full flex flex-col">
+              <div className="relative">
                 <CardMedia
-                  image='./images/game2.png'
+                  image="./images/game2.png"
                   sx={{ paddingTop: '60%' }}
                 />
                 {
@@ -74,25 +71,25 @@ const List = (props) => {
                   )
                 }
               </div>
-              <CardContent className='flex-grow'>
-                <Typography variant='h5' className='font-body'>
+              <CardContent className="flex-grow">
+                <Typography variant="h5" className="font-body">
                   Super Mario Car
                 </Typography>
-                <Typography className='font-body'>
+                <Typography className="font-body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Reiciendis, unde?
                 </Typography>
               </CardContent>
               <CardActions>
-                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card className='h-full flex flex-col'>
-              <div className='relative'>
+            <Card className="h-full flex flex-col">
+              <div className="relative">
                 <CardMedia
-                  image='./images/game3.png'
+                  image="./images/game3.png"
                   sx={{ paddingTop: '60%' }}
                 />
                 {
@@ -101,25 +98,25 @@ const List = (props) => {
                   )
                 }
               </div>
-              <CardContent className='flex-grow'>
-                <Typography variant='h5' className='font-body'>
+              <CardContent className="flex-grow">
+                <Typography variant="h5" className="font-body">
                   Assassin Creed
                 </Typography>
-                <Typography className='font-body'>
+                <Typography className="font-body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Reiciendis, unde?
                 </Typography>
               </CardContent>
               <CardActions>
-                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card className='h-full flex flex-col'>
-              <div className='relative'>
+            <Card className="h-full flex flex-col">
+              <div className="relative">
                 <CardMedia
-                  image='./images/game4.png'
+                  image="./images/game4.png"
                   sx={{ paddingTop: '60%' }}
                 />
                 {
@@ -128,25 +125,25 @@ const List = (props) => {
                   )
                 }
               </div>
-              <CardContent className='flex-grow'>
-                <Typography variant='h5' className='font-body'>
+              <CardContent className="flex-grow">
+                <Typography variant="h5" className="font-body">
                   Squid Game
                 </Typography>
-                <Typography className='font-body'>
+                <Typography className="font-body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Reiciendis, unde?
                 </Typography>
               </CardContent>
               <CardActions>
-                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card className='h-full flex flex-col'>
-              <div className='relative'>
+            <Card className="h-full flex flex-col">
+              <div className="relative">
                 <CardMedia
-                  image='./images/game5.png'
+                  image="./images/game5.png"
                   sx={{ paddingTop: '60%' }}
                 />
                 {
@@ -155,25 +152,25 @@ const List = (props) => {
                   )
                 }
               </div>
-              <CardContent className='flex-grow'>
-                <Typography variant='h5' className='font-body'>
+              <CardContent className="flex-grow">
+                <Typography variant="h5" className="font-body">
                   Bom Car
                 </Typography>
-                <Typography className='font-body'>
+                <Typography className="font-body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Reiciendis, unde?
                 </Typography>
               </CardContent>
               <CardActions>
-                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card className='h-full flex flex-col'>
-              <div className='relative'>
+            <Card className="h-full flex flex-col">
+              <div className="relative">
                 <CardMedia
-                  image='./images/game6.png'
+                  image="./images/game6.png"
                   sx={{ paddingTop: '60%' }}
                 />
                 {
@@ -182,17 +179,17 @@ const List = (props) => {
                   )
                 }
               </div>
-              <CardContent className='flex-grow'>
-                <Typography variant='h5' className='font-body'>
+              <CardContent className="flex-grow">
+                <Typography variant="h5" className="font-body">
                   Kena Bridge of spirits
                 </Typography>
-                <Typography className='font-body'>
+                <Typography className="font-body">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Reiciendis, unde?
                 </Typography>
               </CardContent>
               <CardActions>
-                <button className='border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md' onClick={handleOnClick}>PLAY</button>
+                <button className="border border-blue-400 text-blue-400 px-3 py-1 text-md rounded-md" onClick={handleOnClick}>PLAY</button>
               </CardActions>
             </Card>
           </Grid>
@@ -200,21 +197,19 @@ const List = (props) => {
       </Container>
     </main>
   );
-};
+}
 
 const mapStateToProps = (state) => ({
-  modal: state.users.modal,
   played1: state.game.played1,
   played2: state.game.played2,
   played3: state.game.played3,
   played4: state.game.played4,
   played5: state.game.played5,
   played6: state.game.played6,
-})
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  showModal: () => dispatch(showModal()),
-  playedGame1: () => dispatch(playedGame1())
-})
+  playedGame1: () => dispatch(playedGame1()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(List)
+export default connect(mapStateToProps, mapDispatchToProps)(List);

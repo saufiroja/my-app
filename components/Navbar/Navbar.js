@@ -1,19 +1,17 @@
-import Logo from "./Logo/Logo";
-import Nav from "./Nav/Nav";
-import Button from "./Button/Button";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
+import Logo from './Logo/Logo';
+import Nav from './Nav/Nav';
+import Button from './Button/Button';
 
 export default function Navbar() {
   const router = useRouter();
 
   const handleLogin = () => {
-    router.push("/login");
-    console.log("login");
+    router.push('/login');
   };
 
   const handleRegister = () => {
-    router.push("/register");
-    console.log("register");
+    router.push('/register');
   };
   return (
     <div className="flex xl:pt-[4%] lg:pt-[4%] md:pt-[4%]  sm:pt-[4%] items-center overflow-hidden relative">

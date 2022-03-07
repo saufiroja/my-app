@@ -1,3 +1,56 @@
 {
-  "extends": "next/core-web-vitals"
+    "root": true,
+    // "parser": "babel-eslint",
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings",
+      "plugin:jsx-a11y/recommended",
+      "plugin:react-hooks/recommended",
+      "airbnb"
+    ],
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "node": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "plugins": [],
+    "rules": {
+      "react/jsx-props-no-spreading": "off",
+      "react/prop-types": "off",
+      "react/button-has-type": "off",
+      "no-unused-vars": "off",
+      "no-shadow": "off",
+      "linebreak-style": "off",
+      "no-console": "off",
+      "default-case": "off",
+      "default-param-last": "off",
+      "no-case-declarations": "off",
+      "import/prefer-default-export": "off",
+      "jsx-a11y/label-has-associated-control": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ]
+    }
 }
