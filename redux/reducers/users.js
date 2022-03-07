@@ -1,12 +1,11 @@
-import { CLEAR_STATE, FORGOT_PASSWORD, HIDDEN_MODAL, LOGIN_USER, REGISTER_USER, SHOW_MODAL, UPDATE_PROFILE } from "../constants/users";
+import { CLEAR_STATE, FORGOT_PASSWORD, LOGIN_USER, REGISTER_USER, UPDATE_PROFILE } from "../constants/users";
 
 const initialState = {
     user: null,
     isLoading: false,
     error: "",
     redirect: false,
-    forgotPassword: false,
-    modal: false
+    forgotPassword: false
 }
 
 export const usersReducer = (state = initialState, action) => {
@@ -45,18 +44,6 @@ export const usersReducer = (state = initialState, action) => {
                 isLoading: action.payload.loading,
                 error: action.payload.error,
                 redirect: action.payload.redirect
-            }
-            
-        case SHOW_MODAL:
-            return{
-                ...state,
-                modal: action.payload
-            }
-
-        case HIDDEN_MODAL:
-            return{
-                ...state,
-                modal: action.payload
             }
 
         case CLEAR_STATE:

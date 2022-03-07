@@ -26,29 +26,27 @@ export default function Profile() {
         if (!token) {
             return router.push('/')
         }
-        axios.get(`https://impostorteam-app.herokuapp.com/api/users`)
+        axios.get(`https://server-impostor.herokuapp.com/api/users`)
         .then((result) => {
             setUsers(result.data.user)
-            console.log('result:', result.data);
         })
     }, [router])
 
     const handleDetailUser = (user) => {
         const username = user.username
-        axios.get(`https://impostorteam-app.herokuapp.com/api/user/${username}`)
+        axios.get(`https://server-impostor.herokuapp.com/api/user/${username}`)
         .then((res) => {
-            console.log("res detail:", res.data);
             const myProfile = JSON.parse(Cookies.get('data'))
             const id = user.id
-            if(myProfile.data.data.id === id){
-                setMyProfile(true)
-            } else {
-                setMyProfile(false)
-            }
             setUsername(res.data.data.username)
             setName(res.data.data.name)
             setBio(res.data.data.bio)
             setUserScore(res.data.data.score)
+            if(myProfile.user.id === id){
+                setMyProfile(true)
+            } else {
+                setMyProfile(false)
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -58,11 +56,10 @@ export default function Profile() {
     const handleMyProfile = () => {
         const myProfile = JSON.parse(Cookies.get('data'))
         if(myProfile) {
-            console.log('myProfile:', myProfile);
-            setUsername(myProfile.data.data.username)
-            setName(myProfile.data.data.name)
-            setBio(myProfile.data.data.bio)
-            setUserScore(myProfile.data.data.score)
+            setUsername(myProfile.user.username)
+            setName(myProfile.user.name)
+            setBio(myProfile.user.bio)
+            setUserScore(myProfile.user.score)
             setMyProfile(true)
         }
     }
