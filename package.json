@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint ./pages ./components ./redux",
+    "lint:fix": "eslint --fix ./pages ./components ./redux",
     "export": "next export"
   },
   "dependencies": {
