@@ -7,8 +7,6 @@ import Button from '../components/Navbar/Button/Button';
 import Logo from '../components/Navbar/Logo/Logo';
 import Nav from '../components/Navbar/Nav/Nav';
 import ResponsiveVideo from '../components/ResponsiveVideo';
-import Main from '../components/Main/Main';
-import ListGame from '../components/ListGame/ListGame';
 
 export default function Home() {
   return (
