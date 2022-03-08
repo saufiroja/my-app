@@ -21,7 +21,7 @@ const Main = () => {
                 <Navbar />
                 <div className="xl:w-[55%] lg:w-[60%] md:w-[60%] sm:w-[100%] mt-[4%]">
                     <h1 className="text-white xl:text-8xl lg:text-7xl md:text-5xl sm:text-4xl xl:ml-[0] lg:ml-[0] md:ml-[0] sm:ml-[30%] font-bold font-body pr-32">
-                        let's show your talent for game
+                        lets show your talent for game
                     </h1>
 
                     <div className="xl:ml-[0] lg:ml-[0] md:ml-[0] sm:ml-[40%] mt-[5%]">
