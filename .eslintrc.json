@@ -51,6 +51,7 @@
     "no-restricted-syntax": "off",
     "new-cap": "off",
     "max-len": "off",
+    "linebreak-style": "off",
     "import/no-absolute-path": "off",
     "import/extensions": "off",
     "import/no-unresolved": "off",
