@@ -114,24 +114,24 @@ export default function Profile() {
                 <div className="space-y-4">
                   <div>
                     <p className="mt-5 text-sky-500 text-center">
-                        Data Profile
+                      Data Profile
                     </p>
                     <p className="mt-5">
-                        Username:
-                        {username}
-                      </p>
+                      Username:
+                      {username}
+                    </p>
                     <p className="mt-5">
-                        Full Name:
-                        {name}
-                      </p>
+                      Full Name:
+                      {name}
+                    </p>
                     <p className="mt-5">
-                        Bio:
-                        {bio}
-                      </p>
+                      Bio:
+                      {bio}
+                    </p>
                     <p className="mt-5">
-                        Score:
-                        {userScore}
-                      </p>
+                      Score:
+                      {userScore}
+                    </p>
                   </div>
                   {myProfile && (
                     <button

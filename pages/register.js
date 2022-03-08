@@ -102,8 +102,8 @@ function Register(props) {
             </form>
             <div className="flex gap-2 mt-3">
               <h3>Sudah punya akun?</h3>
-              <Link href="/login">
-                <a className="text-blue-400 underline">Login di sini</a>
+              <Link href="/login" passHref>
+                <a href="replace" className="text-blue-400 underline">Login di sini</a>
               </Link>
             </div>
           </div>
