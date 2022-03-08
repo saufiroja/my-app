@@ -43,29 +43,39 @@ export default function Home() {
               <h3 className="xl:text-3xl lg:text-2xl">CONTRIBUTOR</h3>
               <ul className="mt-5">
                 <li>
-                  <a href="/#" className="text-lg">
-                    Bogiant
-                  </a>
+                  <Link href="/#" passHref>
+                    <a href="replace" className="text-lg">
+                      Bogiant
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/#" className="text-lg">
-                    Fikri
-                  </a>
+                  <Link href="/#" passHref>
+                    <a href="replace" className="text-lg">
+                      Fikri
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/#" className="text-lg">
-                    Hasby
-                  </a>
+                  <Link href="/#" passHref>
+                    <a href="replace" className="text-lg">
+                      Hasby
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/#" className="text-lg">
-                    Oja
-                  </a>
+                  <Link href="/#" passHref>
+                    <a href="replace" className="text-lg">
+                      Oja
+                    </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/#" className="text-lg">
-                    Ulfa
-                  </a>
+                  <Link href="/#" passHref>
+                    <a href="replace" className="text-lg">
+                      Ulfa
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>
