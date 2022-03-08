@@ -1,22 +1,22 @@
-import React from 'react'
-import { render, screen } from '@testing-library/react'
-import Footer from '../../../../components/home/footer/Footer'
-import renderer from "react-test-renderer"
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
+import Footer from '../../../../components/home/footer/Footer';
 
 describe('Footer', () => {
-    it('renders a heading', () => {
-        render(<Footer />)
+  it('renders a heading', () => {
+    render(<Footer />);
 
     const heading = screen.getByRole('heading', {
-        name: "Impostor",
-        })
+      name: 'Impostor',
+    });
 
-        expect(heading).toBeInTheDocument()
-    })
+    expect(heading).toBeInTheDocument();
+  });
 
-    it('matches the snapshot', () => {
-    const tree = renderer.create(<Footer />).toJSON()
+  it('matches the snapshot', () => {
+    const tree = renderer.create(<Footer />).toJSON();
 
-    expect(tree).toMatchSnapshot()
-    })
-})
+    expect(tree).toMatchSnapshot();
+  });
+});
