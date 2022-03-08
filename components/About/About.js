@@ -1,10 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import React from 'react';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 export default function About() {
   return (
+<<<<<<< HEAD
     <section className="bg-[#5956E9] xl:mt-[-7%] lg:mt-[-8%] md:mt-[-11%] sm:mt-[-13%] pb-20" id="about">
+=======
+    <section className="bg-[#5956E9] xl:mt-[7%] lg:mt-[-8%] md:mt-[-11%] sm:mt-[-13%] py-20" id="about">
+>>>>>>> main
       <div className="w-8/12 container">
         <div className="">
           <SectionTitle className="text-white text-center my-20">

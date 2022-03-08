@@ -3,7 +3,7 @@ name: Deploy Netlify
 on:
  push:
     branches:
-      - main
+      - new-dev
 
 jobs:
   deploy:

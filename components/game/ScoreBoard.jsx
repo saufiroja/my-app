@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setScoreFromLocalStorage } from "../../redux/actions/game";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setScoreFromLocalStorage } from '../../redux/actions/game';
 
-const ScoreBoard = () => {
-  const [scoreEffect, setScoreEffect] = useState("");
+function ScoreBoard() {
+  const [scoreEffect, setScoreEffect] = useState('');
   const { score, result } = useSelector((state) => state.game);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setScoreFromLocalStorage(score));
@@ -24,6 +24,6 @@ const ScoreBoard = () => {
       </big>
     </div>
   );
-};
+}
 
 export default ScoreBoard;

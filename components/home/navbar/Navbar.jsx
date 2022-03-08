@@ -1,5 +1,9 @@
 import * as React from 'react';
+<<<<<<< HEAD
 import { useEffect } from 'react'
+=======
+import { useEffect } from 'react';
+>>>>>>> main
 import Cookies from 'js-cookie';
 
 import {
@@ -23,19 +27,33 @@ import { connect, useDispatch } from 'react-redux';
 import { clearState } from '../../../redux/actions/users';
 import { clearStateGame } from '../../../redux/actions/game';
 
+<<<<<<< HEAD
 const Navbar = (props) => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [fotoProfile, setFotoProfile] = React.useState("");
+=======
+function Navbar(props) {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [fotoProfile, setFotoProfile] = React.useState('');
+>>>>>>> main
 
   const router = useRouter();
   const dispatch = useDispatch();
 
   useEffect(() => {
+<<<<<<< HEAD
     if (props.user){
       setFotoProfile(props.user.avatar)
     }
   }, [props.user])
+=======
+    if (props.user) {
+      setFotoProfile(props.user.avatar);
+    }
+  }, [props.user]);
+>>>>>>> main
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -57,42 +75,49 @@ const Navbar = (props) => {
   };
 
   const handleLogout = () => {
+<<<<<<< HEAD
     setFotoProfile("")
     Cookies.remove('data')
     Cookies.remove('score')
     Cookies.remove('token')
+=======
+    setFotoProfile('');
+    Cookies.remove('data');
+    Cookies.remove('score');
+    Cookies.remove('token');
+>>>>>>> main
     dispatch(clearState());
-    dispatch(clearStateGame())
+    dispatch(clearStateGame());
     router.push('/');
   };
 
   return (
-    <AppBar position='static'>
-      <Container maxWidth='xl'>
+    <AppBar position="static">
+      <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
-            variant='h6'
+            variant="h6"
             noWrap
-            component='div'
+            component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-            className='text-body'
+            className="text-body"
           >
             Impostor
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
-              size='large'
-              aria-label='account of current user'
-              aria-controls='menu-appbar'
-              aria-haspopup='true'
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color='inherit'
+              color="inherit"
             >
               <MenuIcon />
             </IconButton>
             <Menu
-              id='menu-appbar'
+              id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
@@ -110,30 +135,30 @@ const Navbar = (props) => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography className='text-body' textAlign='center'>
-                  <Link href='/' color='inherit'>
+                <Typography className="text-body" textAlign="center">
+                  <Link href="/" color="inherit">
                     Home
                   </Link>
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography className='text-body' textAlign='center'>
+                <Typography className="text-body" textAlign="center">
                   About
                 </Typography>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Typography className='text-body' textAlign='center'>
+                <Typography className="text-body" textAlign="center">
                   Leaderboard
                 </Typography>
               </MenuItem>
             </Menu>
           </Box>
           <Typography
-            variant='h6'
+            variant="h6"
             noWrap
-            component='div'
+            component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-            className='text-body'
+            className="text-body"
           >
             Impostor
           </Typography>
@@ -141,36 +166,36 @@ const Navbar = (props) => {
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
-              className='text-body'
-              href='/'
+              className="text-body"
+              href="/"
             >
               Home
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
-              className='text-body'
+              className="text-body"
             >
               About
             </Button>
             <Button
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: 'white', display: 'block' }}
-              className='text-body'
+              className="text-body"
             >
               Leaderboard
             </Button>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Open settings'>
+            <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar src={fotoProfile} />
               </IconButton>
             </Tooltip>
             <Menu
               sx={{ mt: '45px' }}
-              id='menu-appbar'
+              id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
@@ -186,8 +211,8 @@ const Navbar = (props) => {
             >
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography
-                  textAlign='center'
-                  className='text-body'
+                  textAlign="center"
+                  className="text-body"
                   onClick={handleProfile}
                 >
                   Profile
@@ -195,8 +220,8 @@ const Navbar = (props) => {
               </MenuItem>
               <MenuItem onClick={handleCloseUserMenu}>
                 <Typography
-                  textAlign='center'
-                  className='text-body'
+                  textAlign="center"
+                  className="text-body"
                   onClick={handleLogout}
                 >
                   Logout
@@ -208,15 +233,27 @@ const Navbar = (props) => {
       </Container>
     </AppBar>
   );
+<<<<<<< HEAD
 };
 // export default Navbar;
 
 const mapStateToProps = (state) => ({
   user: state.users.user
+=======
+}
+// export default Navbar;
+
+const mapStateToProps = (state) => ({
+  user: state.users.user,
+>>>>>>> main
 });
 
 // const mapDispatchToProps = (dispatch) => ({
 //   updateProfile: (data) => dispatch(updateProfile(data)),
 // });
 
+<<<<<<< HEAD
 export default connect(mapStateToProps)(Navbar);
+=======
+export default connect(mapStateToProps)(Navbar);
+>>>>>>> main
