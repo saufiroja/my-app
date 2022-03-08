@@ -1,3 +1,5 @@
+import Header from '../components/game/Header';
+import GameBoard from '../components/game/GameBoard';
 import { ArrowBack } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
