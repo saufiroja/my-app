@@ -1,3 +1,66 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "parser": "@babel/eslint-parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "requireConfigFile": false,
+    "sourceType": "module",
+    "babelOptions": {
+      "presets": [
+        "@babel/preset-react"
+      ]
+    },
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": [],
+  "rules": {
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "react/jsx-filename-extension": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/button-has-type": "off",
+    "react/destructuring-assignment": "off",
+    "no-undef": "off",
+    "no-console": "off",
+    "no-shadow": "off",
+    "no-case-declarations": "off",
+    "no-unused-vars": "off",
+    "no-restricted-syntax": "off",
+    "new-cap": "off",
+    "max-len": "off",
+    "import/no-absolute-path": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "import/prefer-default-export": "off",
+    "default-param-last": "off",
+    "default-case": "off",
+    "consistent-return": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/label-has-associated-control": "off"
+  }
 }
+
