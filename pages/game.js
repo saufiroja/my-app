@@ -1,8 +1,6 @@
 import { ArrowBack } from '@mui/icons-material';
 import { useRouter } from 'next/router';
 import { useDispatch } from 'react-redux';
-import GameBoard from '../components/game/GameBoard';
-import Header from '../components/game/Header';
 import { playedGame1 } from '../redux/actions/game';
 
 function Game() {
@@ -19,7 +17,7 @@ function Game() {
   return (
     <div className="bg-slate-800">
       <button onClick={handleOnClick}>
-        <a href="replace" className="text-blue-600 p-2">
+        <a className="text-blue-600 p-2">
           <ArrowBack />
         </a>
       </button>

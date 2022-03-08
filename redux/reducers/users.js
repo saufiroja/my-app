@@ -30,15 +30,6 @@ export const usersReducer = (state = initialState, action) => {
         redirect: action.payload.redirect,
       };
 
-    case UPDATE_PROFILE:
-      return {
-        ...state,
-        user: action.payload.data,
-        isLoading: action.payload.loading,
-        error: action.payload.error,
-        redirect: action.payload.redirect,
-      };
-
     case FORGOT_PASSWORD:
       return {
         ...state,
