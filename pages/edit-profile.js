@@ -42,12 +42,21 @@ function EditProfile(props) {
 
   const handleInputImage = (e) => {
     console.log("e:", e);
+<<<<<<< HEAD
+  }
+
+  const onInputUsername = (e) => {
+    setUsername(e.target.value)
+  }
+
+=======
   }
 
   const onInputUsername = (e) => {
     setUsername(e.target.value);
   };
 
+>>>>>>> main
   async function handleUpdate(e){
     e.preventDefault()
 

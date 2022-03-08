@@ -1,5 +1,9 @@
 import * as React from 'react';
+<<<<<<< HEAD
+import { useEffect } from 'react'
+=======
 import { useEffect } from 'react';
+>>>>>>> main
 import Cookies from 'js-cookie';
 
 import {
@@ -23,19 +27,33 @@ import { connect, useDispatch } from 'react-redux';
 import { clearState } from '../../../redux/actions/users';
 import { clearStateGame } from '../../../redux/actions/game';
 
+<<<<<<< HEAD
+const Navbar = (props) => {
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const [fotoProfile, setFotoProfile] = React.useState("");
+=======
 function Navbar(props) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const [fotoProfile, setFotoProfile] = React.useState('');
+>>>>>>> main
 
   const router = useRouter();
   const dispatch = useDispatch();
 
   useEffect(() => {
+<<<<<<< HEAD
+    if (props.user){
+      setFotoProfile(props.user.avatar)
+    }
+  }, [props.user])
+=======
     if (props.user) {
       setFotoProfile(props.user.avatar);
     }
   }, [props.user]);
+>>>>>>> main
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -57,10 +75,17 @@ function Navbar(props) {
   };
 
   const handleLogout = () => {
+<<<<<<< HEAD
+    setFotoProfile("")
+    Cookies.remove('data')
+    Cookies.remove('score')
+    Cookies.remove('token')
+=======
     setFotoProfile('');
     Cookies.remove('data');
     Cookies.remove('score');
     Cookies.remove('token');
+>>>>>>> main
     dispatch(clearState());
     dispatch(clearStateGame());
     router.push('/');
@@ -208,15 +233,27 @@ function Navbar(props) {
       </Container>
     </AppBar>
   );
+<<<<<<< HEAD
+};
+// export default Navbar;
+
+const mapStateToProps = (state) => ({
+  user: state.users.user
+=======
 }
 // export default Navbar;
 
 const mapStateToProps = (state) => ({
   user: state.users.user,
+>>>>>>> main
 });
 
 // const mapDispatchToProps = (dispatch) => ({
 //   updateProfile: (data) => dispatch(updateProfile(data)),
 // });
 
+<<<<<<< HEAD
 export default connect(mapStateToProps)(Navbar);
+=======
+export default connect(mapStateToProps)(Navbar);
+>>>>>>> main

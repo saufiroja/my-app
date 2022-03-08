@@ -26,7 +26,11 @@ export default function Profile() {
         if (!token) {
             return router.push('/')
         }
+<<<<<<< HEAD
+        axios.get(`https://server-impostor.herokuapp.com/api/users`)
+=======
         axios.get(`http://localhost:7000/api/users`)
+>>>>>>> main
         .then((result) => {
             setUsers(result.data.user)
         })
@@ -34,7 +38,11 @@ export default function Profile() {
 
     const handleDetailUser = (user) => {
         const username = user.username
+<<<<<<< HEAD
+        axios.get(`https://server-impostor.herokuapp.com/api/user/${username}`)
+=======
         axios.get(`http://localhost:7000/api/user/${username}`)
+>>>>>>> main
         .then((res) => {
             const myProfile = JSON.parse(Cookies.get('data'))
             const id = user.id
