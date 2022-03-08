@@ -15,7 +15,9 @@ function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { isLoading, error, loginUser, redirect } = props;
+  const {
+    isLoading, error, loginUser, redirect,
+  } = props;
 
   const router = useRouter();
 
@@ -47,66 +49,66 @@ function Login(props) {
   }, [redirect, router]);
 
   return (
-    <div className='bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden'>
+    <div className="bg-white no-repeat bg-cover h-screen w-screen font-body relative overflow-hidden">
       <AssetKuning />
       <LingkaranKuning />
       <AssetUngu />
       <AssetGame />
       <AssetBatu />
 
-      <div className='container py-14'>
+      <div className="container py-14">
         {/* Navbar */}
         <nav>
-          <div className='flex items-center justify-start xl:ml-[5%] lg:ml-[5%] md:ml-[12%]'>
+          <div className="flex items-center justify-start xl:ml-[5%] lg:ml-[5%] md:ml-[12%]">
             <Image
-              src='/images/impostor-logo.svg'
-              alt='impostor-logo'
+              src="/images/impostor-logo.svg"
+              alt="impostor-logo"
               width={24}
               height={24}
             />
-            <span className='font-bold px-2.5 text-2xl'>Impostor</span>
+            <span className="font-bold px-2.5 text-2xl">Impostor</span>
           </div>
         </nav>
 
         {/* Main Component */}
-        <div className='md:flex gap-2 justify-start items-center py-20 xl:ml-[5%] lg:ml-[5%] md:ml-[12%]'>
+        <div className="md:flex gap-2 justify-start items-center py-20 xl:ml-[5%] lg:ml-[5%] md:ml-[12%]">
           <div>
-            <h1 className='text-4xl text-center font-bold'>Login</h1>
-            <form className='grid'>
+            <h1 className="text-4xl text-center font-bold">Login</h1>
+            <form className="grid">
               {error && (
-                <div className='border-red-200 border-transparent border-solid text-red-500 bg-red-200 relative p-3'>
+                <div className="border-red-200 border-transparent border-solid text-red-500 bg-red-200 relative p-3">
                   <p>{error}</p>
                 </div>
               )}
-              <label htmlFor='email' className='mt-3'>
+              <label htmlFor="email" className="mt-3">
                 Email
               </label>
               <input
-                type='email'
-                placeholder='Email'
-                className='border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3'
+                type="email"
+                placeholder="Email"
+                className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
 
-              <label htmlFor='password' className='mt-3'>
+              <label htmlFor="password" className="mt-3">
                 Password
               </label>
               <input
-                type='password'
-                placeholder='Password'
-                className='border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3'
+                type="password"
+                placeholder="Password"
+                className="border border-main rounded-large lg:w-400 md:w-300 h-12 py-1.5 px-3"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
               {isLoading ? (
-                <button className='bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed'>
+                <button className="bg-gray-300 text-gray-600 h-12 rounded-large mt-4 hover:cursor-not-allowed">
                   Loading ...
                 </button>
               ) : (
                 <button
-                  type='button'
-                  className='bg-primary text-white h-12 rounded-large mt-4 hover:bg-blue-700'
+                  type="button"
+                  className="bg-primary text-white h-12 rounded-large mt-4 hover:bg-blue-700"
                   onClick={handleLogin}
                   loading={isLoading ? 1 : 0}
                 >
@@ -115,10 +117,10 @@ function Login(props) {
               )}
               {/* <Button onClick={handleRegister} title="Register" loading={props.isLoading ? 1 : 0} /> */}
             </form>
-            <div className='flex gap-2 mt-3'>
+            <div className="flex gap-2 mt-3">
               <h3>Belum Punya Akun?</h3>
-              <Link href='/register'>
-                <a className='text-blue-400 underline'>Daftar di sini</a>
+              <Link href="/register" passHref>
+                <a href="replace" className="text-blue-400 underline">Daftar di sini</a>
               </Link>
             </div>
           </div>
