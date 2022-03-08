@@ -1,17 +1,16 @@
-import React from "react";
-import IconPaper from "../../assets/images/icon-paper.svg";
-import IconRock from "../../assets/images/icon-rock.svg";
-import IconScissors from "../../assets/images/icon-scissors.svg";
+import React from 'react';
+import IconPaper from '../../assets/images/icon-paper.svg';
+import IconRock from '../../assets/images/icon-rock.svg';
+import IconScissors from '../../assets/images/icon-scissors.svg';
 
-const SelectFinger = ({ finger, className, ...props }) => {
-  const bg =
-    finger === "paper"
-      ? "bg-paper"
-      : finger === "rock"
-      ? "bg-rock"
-      : finger === "scissors"
-      ? "bg-scissors"
-      : "bg-transparent";
+function SelectFinger({ finger, className, ...props }) {
+  const bg = finger === 'paper'
+    ? 'bg-paper'
+    : finger === 'rock'
+      ? 'bg-rock'
+      : finger === 'scissors'
+        ? 'bg-scissors'
+        : 'bg-transparent';
 
   return (
     <div
@@ -20,24 +19,24 @@ const SelectFinger = ({ finger, className, ...props }) => {
     >
       <div
         className={`
-          ${finger ? "bg-slate-800" : "bg-neutral-dark"}
+          ${finger ? 'bg-slate-800' : 'bg-neutral-dark'}
           p-3 rounded-full w-20 h-20 md:w-32 md:h-32 flex items-center 
-          ${finger && "border-t-4 border-b-4 border-2 border-sky-500"}
+          ${finger && 'border-t-4 border-b-4 border-2 border-sky-500'}
           justify-center
         `}
       >
-        {finger === "paper" ? (
+        {finger === 'paper' ? (
           <IconPaper />
-        ) : finger === "rock" ? (
+        ) : finger === 'rock' ? (
           <IconRock />
-        ) : finger === "scissors" ? (
+        ) : finger === 'scissors' ? (
           <IconScissors />
         ) : (
-          ""
+          ''
         )}
       </div>
     </div>
   );
-};
+}
 
 export default SelectFinger;
