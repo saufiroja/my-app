@@ -33,6 +33,7 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.5.4",
     "@babel/preset-react": "^7.16.7",
+    "@next/eslint-plugin-next": "^12.1.0",
     "autoprefixer": "^10.4.2",
     "eslint": "^8.8.0",
     "eslint-config-airbnb": "^19.0.4",
