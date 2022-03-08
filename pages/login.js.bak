@@ -73,7 +73,7 @@ function Login(props) {
         {/* Main Component */}
         <div className="md:flex gap-2 justify-start items-center py-20 xl:ml-[5%] lg:ml-[5%] md:ml-[12%]">
           <div>
-            <h1 className="text-4xl text-center font-bold">Loginhhhh</h1>
+            <h1 className="text-4xl text-center font-bold">Login</h1>
             <form className="grid">
               {error && (
                 <div className="border-red-200 border-transparent border-solid text-red-500 bg-red-200 relative p-3">
