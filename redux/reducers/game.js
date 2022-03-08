@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import {
   CALCULATE_RESULT,
   CLEAR_STATE_GAME,
@@ -12,14 +13,13 @@ import {
   RESET,
   SET_COMPUTER_FINGER,
   SET_SCORE_FROM_LOCALSTORAGE,
-  SET_USER_FINGER
-} from "../constants/game";
-import Cookies from "js-cookie";
+  SET_USER_FINGER,
+} from '../constants/game';
 
 export const gameState = {
-  userFinger: "",
-  computerFinger: "",
-  result: "",
+  userFinger: '',
+  computerFinger: '',
+  result: '',
   score: 0,
   played1: false,
   played2: false,
@@ -34,11 +34,11 @@ export const gameReducer = (state = gameState, action) => {
     case RESET:
       return {
         ...state,
-        userFinger: "",
-          computerFinger: "",
-          result: "",
+        userFinger: '',
+        computerFinger: '',
+        result: '',
       };
-      
+
     case SET_USER_FINGER:
       return {
         ...state,
@@ -52,19 +52,19 @@ export const gameReducer = (state = gameState, action) => {
       };
 
     case CALCULATE_RESULT:
-      let result = "";
+      let result = '';
       switch (state.userFinger) {
         case state.computerFinger:
-          result = "draw";
+          result = 'draw';
           break;
-        case "rock":
-          result = state.computerFinger === "paper" ? "lose" : "win";
+        case 'rock':
+          result = state.computerFinger === 'paper' ? 'lose' : 'win';
           break;
-        case "paper":
-          result = state.computerFinger === "scissors" ? "lose" : "win";
+        case 'paper':
+          result = state.computerFinger === 'scissors' ? 'lose' : 'win';
           break;
-        case "scissors":
-          result = state.computerFinger === "rock" ? "lose" : "win";
+        case 'scissors':
+          result = state.computerFinger === 'rock' ? 'lose' : 'win';
           break;
       }
       return {
@@ -73,67 +73,67 @@ export const gameReducer = (state = gameState, action) => {
       };
 
     case SET_SCORE_FROM_LOCALSTORAGE:
-      const score = Cookies.get('score')
-      if (!score) Cookies.set("score", 0);
+      const score = Cookies.get('score');
+      if (!score) Cookies.set('score', 0);
       return {
         ...state,
-        score: action.payload
+        score: action.payload,
       };
 
     case INCREMENT_SCORE:
       const newScore = state.score + 1;
-      Cookies.set("score", newScore);
+      Cookies.set('score', newScore);
       return {
         ...state,
-        score: newScore
+        score: newScore,
       };
 
     case DECREMENT_SCORE:
       const newScore2 = state.score > 0 ? state.score - 1 : 0;
-      Cookies.set("score", newScore2);
+      Cookies.set('score', newScore2);
       return {
         ...state,
-        score: newScore2
+        score: newScore2,
       };
 
     case PLAYED_GAME_1:
-      return{
+      return {
         ...state,
-        played1: action.payload
-      }
+        played1: action.payload,
+      };
 
     case PLAYED_GAME_2:
-      return{
+      return {
         ...state,
-        played2: action.payload
-      }
+        played2: action.payload,
+      };
 
     case PLAYED_GAME_3:
-      return{
+      return {
         ...state,
-        played3: action.payload
-      }
+        played3: action.payload,
+      };
 
     case PLAYED_GAME_4:
-      return{
+      return {
         ...state,
-        played4: action.payload
-      }
+        played4: action.payload,
+      };
 
     case PLAYED_GAME_5:
-      return{
+      return {
         ...state,
-        played5: action.payload
-      }
+        played5: action.payload,
+      };
 
     case PLAYED_GAME_6:
-      return{
+      return {
         ...state,
-        played6: action.payload
-      }
+        played6: action.payload,
+      };
 
     case CLEAR_STATE_GAME:
-      return{
+      return {
         ...state,
         userFinger: action.payload.userFinger,
         computerFinger: action.payload.computerFinger,
@@ -145,7 +145,7 @@ export const gameReducer = (state = gameState, action) => {
         played4: action.payload.played4,
         played5: action.payload.played5,
         played6: action.payload.played6,
-      }
+      };
 
     default:
       return state;
