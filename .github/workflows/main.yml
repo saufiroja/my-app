@@ -19,10 +19,6 @@ jobs:
 
       - name: 🧰 Install dependencies
         run: npm ci
-      
-      -name : 🧰 Install jspdf
-        run: npm install jspdf
-
 
       - name: 📦 Build project
         run: npm run build --if-present
