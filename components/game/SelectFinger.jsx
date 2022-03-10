@@ -1,7 +1,7 @@
 import React from 'react';
-import IconPaper from '../../public/images/icon-paper.svg';
-import IconRock from '../../public/images/icon-rock.svg';
-import IconScissors from '../../public/images/icon-scissors.svg';
+import IconPaper from '../../assets/images/icon-paper.svg';
+import IconRock from '../../assets/images/icon-rock.svg';
+import IconScissors from '../../assets/images/icon-scissors.svg';
 
 function SelectFinger({ finger, className, ...props }) {
   const bg = finger === 'paper'

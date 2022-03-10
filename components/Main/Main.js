@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import AssetKuning from '../Assets/AssetKuning';
-import LingkaranKuning from '../Assets/LingkaranKuning';
-import AssetPink from '../Assets/AssetPink';
-import AssetGame from '../Assets/AssetGame';
-import AssetBatu from '../Assets/AssetBatu';
-import Navbar from '../Navbar/Navbar';
-import Button from '../Navbar/Button/Button';
+import AssetKuning from '/components/Assets/AssetKuning';
+import LingkaranKuning from '/components/Assets/LingkaranKuning';
+import AssetPink from '/components/Assets/AssetPink';
+import AssetGame from '/components/Assets/AssetGame';
+import AssetBatu from '/components/Assets/AssetBatu';
+import Navbar from '/components/Navbar/Navbar';
+import Button from '/components/Navbar/Button/Button';
 
 function Main() {
   return (
@@ -16,6 +16,7 @@ function Main() {
       <AssetPink />
       <AssetGame />
       <AssetBatu />
+
       <div className="container mx-auto px-[6%] overflow-y-hidden">
         <Navbar />
         <div className="xl:w-[55%] lg:w-[60%] md:w-[60%] sm:w-[100%] mt-[4%]">

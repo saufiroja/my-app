@@ -19,7 +19,7 @@ function Game() {
   return (
     <div className="bg-slate-800">
       <button onClick={handleOnClick}>
-        <a className="text-blue-600 p-2">
+        <a href="replace" className="text-blue-600 p-2">
           <ArrowBack />
         </a>
       </button>

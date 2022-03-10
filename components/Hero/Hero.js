@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import Button from '../Navbar/Button/Button';
 import Navbar from '../Navbar/Navbar';
-import AssetKuning from '../Assets/AssetKuning';
-import AssetGame from '../Assets/AssetGame';
-import AssetBatu from '../Assets/AssetBatu';
-import AssetPink from '../Assets/AssetPink';
-import ShapeKuning from '../Assets/ShapeKuning';
+import AssetKuning from '/components/Assets/AssetKuning';
+import AssetGame from '/components/Assets/AssetGame';
+import AssetBatu from '/components/Assets/AssetBatu';
+import AssetPink from '/components/Assets/AssetPink';
+import ShapeKuning from '/components/Assets/ShapeKuning';
 
 export default function Hero() {
   return (

@@ -27,7 +27,7 @@ function Footer() {
           <Grid item xs={12} sm={4}>
             <Box borderBottom={1}>Contributor</Box>
             <Box>
-              <Typography role="paragraf" className="font-body" pb={1} pt={1}>
+              <Typography className="font-body" pb={1} pt={1}>
                 Bogiant
               </Typography>
             </Box>

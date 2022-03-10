@@ -9,6 +9,7 @@ import {
   Button,
 } from '@mui/material';
 import { connect } from 'react-redux';
+import { useRouter } from 'next/router';
 import { playedGame1 } from '../../../redux/actions/game';
 import { LastPlayed } from '../LastPlayed';
 

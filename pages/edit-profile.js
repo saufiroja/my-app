@@ -153,8 +153,8 @@ function EditProfile(props) {
             </button>
           ) : (
             <button
-              type="button"
-              className="bg-primary text-white rounded-large mt-4 py-3 w-full"
+              type='button'
+              className='bg-primary text-white rounded-large mt-4 py-3 w-full'
               onClick={handleUpdate}
               loading={isLoading ? 1 : 0}
             >
@@ -163,8 +163,8 @@ function EditProfile(props) {
           )} */}
           <div className="flex text-slate-700">
             <p className="mt-4">Back To Profile?</p>
-            <Link href="/home">
-              <a className="text-blue-400 underline mt-4 px-2">Klick Here</a>
+            <Link href="/home" passHref>
+              <a href="replace" className="text-blue-400 underline mt-4 px-2">Klick Here</a>
             </Link>
           </div>
         </form>
