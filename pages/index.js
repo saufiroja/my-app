@@ -34,9 +34,9 @@ export default function Home() {
               </div>
               <p className="mt-5 leading-relaxed">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry&apos;s standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
+                industry. Lorem Ipsum has been the industry&apos;s standard
+                dummy text ever since the 1500s, when an unknown printer took a
+                galley of type and scrambled it to make a type specimen book.
               </p>
             </div>
             <div className="w-4/12 xl:px-16 lg:px-16 md:px-14 sm:px-7">
@@ -92,7 +92,10 @@ export default function Home() {
                 />
               </form>
               <Link href="/#" passHref>
-                <a href="replace" className="mt-3 rounded-full bg-primary text-white text-lg px-10 py-3 inline-block text-center">
+                <a
+                  href="replace"
+                  className="mt-3 rounded-full bg-primary text-white text-lg px-10 py-3 inline-block text-center"
+                >
                   SUBSCRIBE
                 </a>
               </Link>

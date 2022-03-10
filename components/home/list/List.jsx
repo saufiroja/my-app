@@ -27,6 +27,7 @@ function List(props) {
   };
   return (
     <main>
+
       <Container maxWidth="md" className="pt-10">
         <Typography variant="h4" align="center" pb={3} className="font-body">
           List Game
@@ -212,5 +213,6 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   playedGame1: () => dispatch(playedGame1()),
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

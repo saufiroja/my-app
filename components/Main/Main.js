@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import AssetKuning from '/components/Assets/AssetKuning';
-import LingkaranKuning from '/components/Assets/LingkaranKuning';
-import AssetPink from '/components/Assets/AssetPink';
-import AssetGame from '/components/Assets/AssetGame';
-import AssetBatu from '/components/Assets/AssetBatu';
-import Navbar from '/components/Navbar/Navbar';
-import Button from '/components/Navbar/Button/Button';
+import AssetKuning from '../Assets/AssetKuning';
+import LingkaranKuning from '../Assets/LingkaranKuning';
+import AssetPink from '../Assets/AssetPink';
+import AssetGame from '../Assets/AssetGame';
+import AssetBatu from '../Assets/AssetBatu';
+import Navbar from '../Navbar/Navbar';
+import Button from '../Navbar/Button/Button';
 
 function Main() {
   return (
@@ -33,7 +33,11 @@ function Main() {
       </div>
       <div className="sticky">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill="#FFFFFF" fillOpacity="1" d="M0,160L48,170.7C96,181,192,203,288,218.7C384,235,480,245,576,224C672,203,768,149,864,144C960,139,1056,181,1152,208C1248,235,1344,245,1392,250.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+          <path
+            fill="#FFFFFF"
+            fillOpacity="1"
+            d="M0,160L48,170.7C96,181,192,203,288,218.7C384,235,480,245,576,224C672,203,768,149,864,144C960,139,1056,181,1152,208C1248,235,1344,245,1392,250.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          />
         </svg>
       </div>
     </div>

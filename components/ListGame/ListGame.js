@@ -55,14 +55,18 @@ export default function ListGame() {
       {/* Section Video Tutorial */}
       {/* <section> */}
       <div className="container mt-14">
-        <ResponsiveVideo
-          url="https://www.youtube.com/watch?v=M8rbVzVf_z0"
-        />
+        <ResponsiveVideo url="https://www.youtube.com/watch?v=M8rbVzVf_z0" />
       </div>
       {/* </section> */}
 
       <div className="sticky">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#5956E9" fillOpacity="1" d="M0,224L48,208C96,192,192,160,288,170.7C384,181,480,235,576,240C672,245,768,203,864,197.3C960,192,1056,224,1152,218.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="#5956E9"
+            fillOpacity="1"
+            d="M0,224L48,208C96,192,192,160,288,170.7C384,181,480,235,576,240C672,245,768,203,864,197.3C960,192,1056,224,1152,218.7C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          />
+        </svg>
       </div>
     </section>
   );

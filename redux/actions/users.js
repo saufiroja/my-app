@@ -22,6 +22,7 @@ export const registerUser = (payload) => async (dispatch) => {
   });
 
   // post data
+
   await axios.post('https://server-impostor.herokuapp.com/api/register', payload)
     .then((res) => {
       console.log('success: ', res);
@@ -151,6 +152,7 @@ export const forgotPassword = (payload) => (dispatch) => {
 
   axios
     .put('https://server-impostor.herokuapp.com/api/forgot-password', { email: payload })
+
     .then((res) => {
       console.log('res forgot-password:', res);
       dispatch({
@@ -184,3 +186,4 @@ export const clearState = () => ({
     redirect: false,
   },
 });
+
