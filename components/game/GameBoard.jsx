@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SelectFinger from './SelectFinger';
 import ResultDisplay from './ResultDisplay';
-import Triangle from '../../public/images/bg-triangle.svg';
+import Triangle from '../../assets/images/bg-triangle.svg';
 
 function GameBoard() {
   const dispatch = useDispatch();
