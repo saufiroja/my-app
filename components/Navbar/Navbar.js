@@ -7,19 +7,11 @@ export default function Navbar() {
   const router = useRouter();
 
   const handleLogin = () => {
-<<<<<<< HEAD
-    router.push("/login");
-  };
-
-  const handleRegister = () => {
-    router.push("/register");
-=======
     router.push('/login');
   };
 
   const handleRegister = () => {
     router.push('/register');
->>>>>>> main
   };
   return (
     <div className="flex xl:pt-[4%] lg:pt-[4%] md:pt-[4%]  sm:pt-[4%] items-center overflow-hidden relative">

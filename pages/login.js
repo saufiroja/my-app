@@ -115,6 +115,7 @@ function Login(props) {
                   Login
                 </button>
               )}
+              {/* <Button onClick={handleRegister} title="Register" loading={props.isLoading ? 1 : 0} /> */}
             </form>
             <div className="flex gap-2 mt-3">
               <h3>Belum Punya Akun?</h3>
