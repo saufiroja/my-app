@@ -54,7 +54,7 @@ function EditProfile(props) {
     const formData = new FormData();
     const form = e.currentTarget;
     const fileInput = Array.from(form.elements).find(
-      ({ name }) => name === 'file'
+      ({ name }) => name === 'file',
     );
     console.log('fileInput', fileInput);
     console.log('currentTarget', e.currentTarget);
@@ -70,7 +70,7 @@ function EditProfile(props) {
       {
         method: 'POST',
         body: formData,
-      }
+      },
     ).then((res) => res.json());
 
     console.log('cloudinaryData:', cloudinaryData);

@@ -208,4 +208,15 @@ function Navbar(props) {
       </Container>
     </AppBar>
   );
+}
+// export default Navbar;
 
+const mapStateToProps = (state) => ({
+  user: state.users.user,
+});
+
+// const mapDispatchToProps = (dispatch) => ({
+//   updateProfile: (data) => dispatch(updateProfile(data)),
+// });
+
+export default connect(mapStateToProps)(Navbar);

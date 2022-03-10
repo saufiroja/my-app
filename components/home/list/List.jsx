@@ -214,5 +214,4 @@ const mapDispatchToProps = (dispatch) => ({
   playedGame1: () => dispatch(playedGame1()),
 });
 
-
 export default connect(mapStateToProps, mapDispatchToProps)(List);
